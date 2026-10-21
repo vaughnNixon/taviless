@@ -2,11 +2,11 @@
 
 > **Free, model-free web retrieval for LLMs. Search across engines, deduplicate results, extract useful content, and return evidence to your AI agent.**
 > 
-> A 100% free, zero-dependency, open-source drop-in replacement for the Tavily Search API.
+> A free, zero-dependency, open-source library compatible with the Tavily search API.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: 3.9+](https://img.shields.io/badge/Python-3.9%2B-brightgreen.svg)]()
-[![Tests](https://img.shields.io/badge/Tests-Passing%20(27%2F27)-success)]()
+[![Tests](https://img.shields.io/badge/Tests-Passing%20(28%2F28)-success)]()
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero%20(Pure%20Stdlib)-blueviolet)]()
 
 Taviless gives your AI agents, LangChain workflows, CrewAI teams, and local LLMs real-time web search with clean, token-dense markdown content extraction—**without API keys, subscriptions, credit cards, or Docker containers required**.
@@ -22,7 +22,7 @@ Most search APIs for AI agents (like Tavily) charge monthly subscriptions, gate 
 
 Furthermore, many proprietary search engines bias heavily toward commercial SEO pages or hallucinate when asked for long-tail historical records. Taviless was built to provide:
 1. **Absolute Freedom:** Pure Python standard library (`urllib.request`, `concurrent.futures`, `html.parser`). `pip install taviless` and you're immediately running.
-2. **Drop-in Parity:** Exact match for the Tavily API schema so existing agent pipelines can switch with a single-line import change.
+2. **Search API Compatibility:** Compatible with Tavily's search response schema so existing agent pipelines can switch with a single-line import change.
 3. **Deep Archival Retrieval:** Grounded evidence from primary sources (including Internet Archive scans and academic repositories) where standard LLMs hallucinate.
 4. **Reverse-Chronological Temporal Grounding:** Prevents agents from falling into the "Static Homepage Trap" on fast-moving tech queries.
 
@@ -80,7 +80,7 @@ pip install "taviless[extract]"
 
 ---
 
-## 🚀 Quickstart: Drop-in Tavily Replacement
+## 🚀 Quickstart: Drop-in Tavily Search Replacement
 
 Simply change your import:
 
@@ -96,7 +96,7 @@ response = client.search("python asyncio event loop", search_depth="basic", max_
 print(response)
 ```
 
-### Exact Tavily-Compatible Output:
+### Tavily-Compatible Output:
 
 ```json
 {
@@ -114,6 +114,17 @@ print(response)
   "answer": null,
   "images": []
 }
+```
+
+### 2. Direct URL Content Extraction (`client.extract`)
+
+Extract clean, token-dense markdown from target URLs in parallel (compatible with Tavily's extract API):
+
+```python
+data = client.extract(urls=["https://peps.python.org/pep-3156/"])
+for item in data["results"]:
+    print(f"URL: {item['url']}")
+    print(f"Content: {item['raw_content'][:300]}...")
 ```
 
 ---
@@ -258,7 +269,7 @@ While Taviless provides a robust multi-engine gateway out of the box, keep the f
 ## 🧪 Testing
 
 ```bash
-# Run unit test suite (27 passing tests)
+# Run unit test suite (28 passing tests)
 python -m unittest discover tests
 
 # Run live verification

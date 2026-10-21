@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from taviless.client import Client, TavilyClient, search
+from taviless.client import Client, TavilyClient, extract, search
 from taviless.errors import (
     ConfigurationError,
     ExtractionError,
@@ -26,5 +26,6 @@ __all__ = [
     "TavilessError",
     "TavilyClient",
     "__version__",
+    "extract",
     "search",
 ]

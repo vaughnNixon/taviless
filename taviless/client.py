@@ -293,6 +293,66 @@ class TavilyClient:
         )
         return response.get("answer") or self.get_search_context(query, max_results=2)
 
+    def extract(
+        self,
+        urls: Union[str, List[str]],
+        include_images: bool = False,
+        extract_depth: str = "basic",
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
+        """Extract content from one or more URLs in parallel (Tavily extract API compatible).
+
+        Args:
+            urls: A single URL string or a list of URL strings.
+            include_images: Whether to extract images (reserved for compatibility).
+            extract_depth: "basic" or "advanced".
+            **kwargs: Other Tavily extract arguments (safely ignored).
+
+        Returns:
+            Dictionary matching Tavily extract schema:
+            {'results': [{'url': ..., 'raw_content': ...}], 'failed_results': [...], 'response_time': ...}
+        """
+        start_time = time.time()
+        url_list = [urls] if isinstance(urls, str) else list(urls)
+
+        results: List[Dict[str, Any]] = []
+        failed_results: List[Dict[str, Any]] = []
+
+        def _extract_one(target_url: str):
+            try:
+                clean_text, raw_html = fetch_and_extract(
+                    url=target_url,
+                    timeout=self.crawl_timeout,
+                    max_chars=8000 if extract_depth == "advanced" else 4000,
+                    use_trafilatura=self.use_trafilatura,
+                )
+                if clean_text:
+                    return {"url": target_url, "raw_content": clean_text}, None
+                else:
+                    return None, {"url": target_url, "error": "No content extracted"}
+            except Exception as e:
+                return None, {"url": target_url, "error": str(e)}
+
+        workers = min(len(url_list), self.max_workers) or 1
+        if workers <= 1:
+            extracted_pairs = [_extract_one(u) for u in url_list]
+        else:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+                extracted_pairs = list(executor.map(_extract_one, url_list))
+
+        for success, failure in extracted_pairs:
+            if success:
+                results.append(success)
+            elif failure:
+                failed_results.append(failure)
+
+        elapsed = round(time.time() - start_time, 2)
+        return {
+            "results": results,
+            "failed_results": failed_results,
+            "response_time": elapsed,
+        }
+
 
 # Client alias
 Client = TavilyClient
@@ -320,3 +380,20 @@ def search(
         max_results=max_results,
         **search_kwargs,
     )
+
+
+def extract(
+    urls: Union[str, List[str]],
+    **kwargs: Any,
+) -> Dict[str, Any]:
+    """Convenience functional interface for URL content extraction.
+
+    Example:
+        >>> from taviless import extract
+        >>> data = extract("https://docs.python.org/3/library/asyncio.html")
+    """
+    ctor_keys = {"api_key", "searxng_url", "default_engine", "request_timeout",
+                 "crawl_timeout", "max_workers", "use_trafilatura"}
+    client = TavilyClient(**{k: v for k, v in kwargs.items() if k in ctor_keys})
+    extract_kwargs = {k: v for k, v in kwargs.items() if k not in ctor_keys}
+    return client.extract(urls=urls, **extract_kwargs)

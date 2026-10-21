@@ -96,6 +96,16 @@ class TestClient(unittest.TestCase):
         ans = self.client.qna_search("capital of France")
         self.assertIn("Paris is the capital of France", ans)
 
+    @patch("taviless.client.fetch_and_extract")
+    def test_extract(self, mock_fetch) -> None:
+        mock_fetch.return_value = ("Clean page body text", "<html>raw</html>")
+        res = self.client.extract("https://example.com/article")
+        self.assertEqual(len(res["results"]), 1)
+        self.assertEqual(res["results"][0]["url"], "https://example.com/article")
+        self.assertEqual(res["results"][0]["raw_content"], "Clean page body text")
+        self.assertEqual(res["failed_results"], [])
+        self.assertIn("response_time", res)
+
 
 if __name__ == "__main__":
     unittest.main()
