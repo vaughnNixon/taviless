@@ -30,3 +30,8 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
+
+# Benchmarks & Scratch (temporary keys/runs)
+*benchmark*
+scratch/
+.env*
