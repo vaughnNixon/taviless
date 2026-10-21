@@ -4,6 +4,7 @@
 > 
 > A free, zero-dependency, open-source library compatible with the Tavily search API.
 
+[![PyPI version](https://img.shields.io/pypi/v/taviless.svg)](https://pypi.org/project/taviless/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: 3.9+](https://img.shields.io/badge/Python-3.9%2B-brightgreen.svg)]()
 [![Tests](https://github.com/vaughnNixon/taviless/actions/workflows/tests.yml/badge.svg)](https://github.com/vaughnNixon/taviless/actions/workflows/tests.yml)
