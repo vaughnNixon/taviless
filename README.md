@@ -1,34 +1,77 @@
 # Taviless 🔍
 
-> **100% Free, Zero-Dependency, Open-Source Drop-in Replacement for the Tavily Search API.**
+> **Free, model-free web retrieval for LLMs. Search across engines, deduplicate results, extract useful content, and return evidence to your AI agent.**
+> 
+> A 100% free, zero-dependency, open-source drop-in replacement for the Tavily Search API.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: 3.9+](https://img.shields.io/badge/Python-3.9%2B-brightgreen.svg)]()
 [![Tests](https://img.shields.io/badge/Tests-Passing%20(14%2F14)-success)]()
+[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero%20(Pure%20Stdlib)-blueviolet)]()
 
-Taviless gives your AI agents, LangChain workflows, and CrewAI teams real-time web search with clean, token-dense markdown content extraction—**without API keys, subscriptions, or credit card requirements**.
+Taviless gives your AI agents, LangChain workflows, CrewAI teams, and local LLMs real-time web search with clean, token-dense markdown content extraction—**without API keys, subscriptions, credit cards, or Docker containers required**.
 
 ---
 
-## ⚡ Highlights
+## ⚡ The Origin Story
 
-* **100% Tavily-Compatible Schema:** Exact drop-in schema match (`query`, `results[{"title", "url", "content", "score", "raw_content"}]`, `response_time`).
-* **Zero Dependencies by Default:** Core library runs exclusively on the Python standard library (`urllib.request`, `concurrent.futures`, `html.parser`).
-* **Reverse-Chronological Temporal Grounding:** Auto-detects `"latest"`, `"recent"`, or `"new"` queries, enforces temporal freshness, and scans backwards from today's date so newest releases (e.g. October releases before September announcements) always bubble to the top.
-* **Dual Search Depths:**
-  * `search_depth="basic"`: Blazing fast search engine snippets (~300ms).
-  * `search_depth="advanced"`: Parallel link crawling via `ThreadPoolExecutor` and clean markdown extraction.
-* **Resilient Multi-Engine Gateway:** Queries SearXNG (Google/Bing metasearch) with automatic failover and circuit breakers, backed by a triple-layer DuckDuckGo fallback.
-* **Private SearXNG Support:** Point to your private Docker instance via `TAVILESS_SEARXNG_URL` for unlimited throughput.
-* **1-Line Integrations:** Ready-to-use adapters for LangChain, CrewAI, and native OpenAI tool definitions.
-* **Opt-in High-Density Extraction:** Supports `pip install "taviless[extract]"` for `trafilatura`-powered content extraction.
+Taviless was **vibe-coded in about 20 minutes, taking roughly two hours from a random whiteboard idea to a fully tested, production-packaged Python library**. 
+
+### Why We Built It
+Most search APIs for AI agents (like Tavily) charge monthly subscriptions, gate basic capabilities behind credit cards, and throttle agent exploration. When building autonomous agents, you shouldn't need a paid API key just to verify facts or read a webpage. 
+
+Furthermore, many proprietary search engines bias heavily toward commercial SEO pages or hallucinate when asked for long-tail historical records. Taviless was built to provide:
+1. **Absolute Freedom:** Pure Python standard library (`urllib.request`, `concurrent.futures`, `html.parser`). `pip install taviless` and you're immediately running.
+2. **Drop-in Parity:** Exact match for the Tavily API schema so existing agent pipelines can switch with a single-line import change.
+3. **Deep Archival Retrieval:** Grounded evidence from primary sources (including Internet Archive scans and academic repositories) where standard LLMs hallucinate.
+4. **Reverse-Chronological Temporal Grounding:** Prevents agents from falling into the "Static Homepage Trap" on fast-moving tech queries.
+
+---
+
+## 🏛️ Featured Showcase: The 1970 NBS Archival Challenge
+
+To see why model-free, primary-source web retrieval matters, consider this query:
+
+> *"NBS Technical News Bulletin July 1970 Vol 54 No 7 Erlenmeyer flask transducer syringe page 148"*
+
+When asked about this obscure physical laboratory apparatus from 1970, commercial LLMs frequently claim the citation is "unverified", "non-existent", or completely hallucinate the contents. 
+
+Taviless runs multi-engine discovery with deep archival traversal and retrieves the exact digitized print scan from the **Internet Archive** in seconds:
+
+```bash
+python examples/demo_nbs_1970.py
+```
+
+```text
+======================================================================
+Taviless Archival Retrieval Showcase: 1970 NBS Technical News Bulletin
+======================================================================
+[1] Querying engines: 'NBS Technical News Bulletin July 1970 Vol 54 No 7...'
+[2] Results retrieved in 8.19s:
+
+  #1 Title:   Technical News Bulletin - volume 54 no. 7 - Archive.org
+     URL:     https://archive.org/details/technicalnewsbul547nati
+     Snippet: T1 .U45 v.54 no.7 1970 Camera Sony Alpha-A6300 (Control)... The NBS Technical News Bulletin is a publication of the U.S. Government...
+
+  #2 Title:   PDF United States. National Bureau of Standards. Technical News Bulletin...
+     URL:     https://ia601803.us.archive.org/34/items/sim_dimensions-national-bureau-of-standards_1970-07_54_7/...
+     Snippet: Technical News Bulletin JULY 1970 / VOL. 54, NO. 7 / ISSUED MONTHLY...
+
+======================================================================
+[SUCCESS] Primary-source historical document located without hallucinations!
+======================================================================
+```
+
+No hallucinations. Just verifiable, primary-source evidence returned directly to the agent.
 
 ---
 
 ## 📦 Installation
 
+**Zero Docker required.** Works out of the box on Windows, macOS, and Linux:
+
 ```bash
-# Minimal zero-dependency install (pure Python standard library)
+# Pure Python standard library install (zero 3rd-party dependencies!)
 pip install taviless
 
 # Optional: with high-density trafilatura article extractor
@@ -48,12 +91,12 @@ from taviless import TavilyClient
 # Initialize client (api_key is accepted for compatibility, but optional)
 client = TavilyClient()
 
-# 1. Basic fast search
+# 1. Basic fast search (~300ms)
 response = client.search("python asyncio event loop", search_depth="basic", max_results=3)
 print(response)
 ```
 
-### Tavily-Compatible Output:
+### Exact Tavily-Compatible Output:
 
 ```json
 {
@@ -71,6 +114,60 @@ print(response)
   "answer": null,
   "images": []
 }
+```
+
+---
+
+## 🤖 Example: LLM Tool Calling with Grounded Citations
+
+Here is a complete, working example showing how an LLM (e.g., OpenAI `gpt-4o`) calls Taviless, receives structured source evidence, and synthesizes a grounded answer with citations:
+
+```python
+import json
+from openai import OpenAI
+from taviless.adapters import get_openai_tool, execute_openai_tool_call
+
+client = OpenAI()
+
+messages = [
+    {"role": "system", "content": "You are a research assistant. Always back up claims with search evidence."},
+    {"role": "user", "content": "What are the latest updates on Python 3.14?"}
+]
+
+# 1. Send query to LLM with Taviless tool definition
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=messages,
+    tools=[get_openai_tool()],
+)
+
+message = response.choices[0].message
+
+# 2. Check if the LLM invoked Taviless search
+if message.tool_calls:
+    messages.append(message)
+    for tool_call in message.tool_calls:
+        print(f"-> Agent invoked tool: {tool_call.function.name}")
+        print(f"-> Arguments: {tool_call.function.arguments}")
+        
+        # Execute Taviless tool call
+        tool_result = execute_openai_tool_call(tool_call.function.arguments)
+        
+        # Feed retrieved sources back into conversation
+        messages.append({
+            "role": "tool",
+            "tool_call_id": tool_call.id,
+            "name": tool_call.function.name,
+            "content": tool_result,
+        })
+
+    # 3. Model synthesizes final grounded answer with sources
+    final_response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=messages,
+    )
+    print("\nFinal Grounded Answer:\n")
+    print(final_response.choices[0].message.content)
 ```
 
 ---
@@ -99,7 +196,7 @@ for result in response["results"]:
 
 ## ⏱️ Reverse-Chronological Temporal Grounding
 
-Most web scrapers fall into the **Static Homepage Trap**: when you search for "latest model", they crawl the vendor's root homepage and grab whatever marketing banner was written first.
+Most web scrapers fall into the **Static Homepage Trap**: when you search for "latest model", they crawl the vendor's root homepage and grab whatever marketing banner was written months ago.
 
 Taviless uses **Reverse-Chronological Temporal Grounding**:
 1. Checks the current calendar date (`datetime.date.today()`).
@@ -108,27 +205,25 @@ Taviless uses **Reverse-Chronological Temporal Grounding**:
 
 ```python
 # Automatically detects temporal intent and surfaces the freshest sub-releases
-results = client.search("latest AI model of Anthropic", search_depth="advanced")
+results = client.search("latest AI model releases", search_depth="advanced")
 ```
 
 ---
 
-## 🤖 Framework Adapters
+## 🧩 Framework Adapters
 
 ### 1. LangChain
-
 ```python
 from taviless.adapters import get_langchain_tool
 
 # Drop-in replacement for TavilySearchResults
 tavily_tool = get_langchain_tool(max_results=5, search_depth="basic")
 
-# Bind directly to your model
+# Bind directly to your model or agent
 llm_with_tools = model.bind_tools([tavily_tool])
 ```
 
 ### 2. CrewAI
-
 ```python
 from crewai import Agent
 from taviless.adapters import get_crewai_tool
@@ -143,46 +238,20 @@ researcher = Agent(
 )
 ```
 
-### 3. OpenAI Function / Tool Calling
-
-```python
-from openai import OpenAI
-from taviless.adapters import get_openai_tool, execute_openai_tool_call
-
-client = OpenAI()
-
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[{"role": "user", "content": "What are the latest updates on Python?"}],
-    tools=[get_openai_tool()],
-)
-
-# Execute tool call in one line
-tool_call = response.choices[0].message.tool_calls[0]
-tool_result_json = execute_openai_tool_call(tool_call.function.arguments)
-```
-
 ---
 
-## 🛠️ Configuration & Custom Instances
+## ⚠️ Limitations & Best Practices
 
-### Self-Hosted SearXNG
-If you run SearXNG locally in Docker:
-```bash
-docker run -d -p 8080:8080 -e "SEARXNG_BASE_URL=http://localhost:8080/" searxng/searxng
-```
+While Taviless provides a robust multi-engine gateway out of the box, keep the following real-world characteristics in mind:
 
-Configure Taviless to use it automatically:
-
-```bash
-export TAVILESS_SEARXNG_URL="http://localhost:8080"
-```
-
-Or pass it programmatically:
-
-```python
-client = TavilyClient(searxng_url="http://localhost:8080")
-```
+1. **Upstream Interface Changes:** Public search engines (DuckDuckGo, SearXNG public instances) do not provide SLA-backed APIs; their HTML markup, headers, and anti-bot challenges can change periodically. Taviless employs a multi-tiered fallback (SearXNG JSON $\rightarrow$ DuckDuckGo POST $\rightarrow$ DuckDuckGo GET $\rightarrow$ DuckDuckGo Lite HTML table) to maintain resilience.
+2. **Rate Limiting & Throttling:** If you run heavy parallel agent swarms sending dozens of queries per second, public gateways will temporarily throttle or rate-limit automated IP requests.
+3. **Optional Private SearXNG Node:** For high-volume production deployments with zero throttling, you can point Taviless to your own private SearXNG Docker container in 1 line:
+   ```bash
+   docker run -d -p 8080:8080 -e "SEARXNG_BASE_URL=http://localhost:8080/" searxng/searxng
+   export TAVILESS_SEARXNG_URL="http://localhost:8080"
+   ```
+   Or pass it in code: `TavilyClient(searxng_url="http://localhost:8080")`.
 
 ---
 
@@ -192,12 +261,15 @@ client = TavilyClient(searxng_url="http://localhost:8080")
 # Run unit test suite (14 passing tests)
 python -m unittest discover tests
 
-# Run live end-to-end verification
+# Run live verification
 python test_run.py
+
+# Run the 1970 NBS archival demonstration
+python examples/demo_nbs_1970.py
 ```
 
 ---
 
 ## 📄 License
 
-MIT License. See [LICENSE](LICENSE) for details.
+MIT License. See [LICENSE](LICENSE) for details. Free for commercial, personal, and research use.
