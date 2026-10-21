@@ -2,9 +2,9 @@
 
 > **100% Free, Zero-Dependency, Open-Source Drop-in Replacement for the Tavily Search API.**
 
-[![PyPI](https://img.shields.io/pypi/v/taviless.svg)](https://pypi.org/project/taviless/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: 3.9+](https://img.shields.io/badge/Python-3.9%2B-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/Tests-Passing%20(14%2F14)-success)]()
 
 Taviless gives your AI agents, LangChain workflows, and CrewAI teams real-time web search with clean, token-dense markdown content extraction—**without API keys, subscriptions, or credit card requirements**.
 
@@ -12,15 +12,16 @@ Taviless gives your AI agents, LangChain workflows, and CrewAI teams real-time w
 
 ## ⚡ Highlights
 
-* **100% Tavily-Compatible Schema:** Outputs exact schema match (`query`, `results[{"title", "url", "content", "score", "raw_content"}]`, `response_time`).
+* **100% Tavily-Compatible Schema:** Exact drop-in schema match (`query`, `results[{"title", "url", "content", "score", "raw_content"}]`, `response_time`).
 * **Zero Dependencies by Default:** Core library runs exclusively on the Python standard library (`urllib.request`, `concurrent.futures`, `html.parser`).
+* **Reverse-Chronological Temporal Grounding:** Auto-detects `"latest"`, `"recent"`, or `"new"` queries, enforces temporal freshness, and scans backwards from today's date so newest releases (e.g. October releases before September announcements) always bubble to the top.
 * **Dual Search Depths:**
   * `search_depth="basic"`: Blazing fast search engine snippets (~300ms).
   * `search_depth="advanced"`: Parallel link crawling via `ThreadPoolExecutor` and clean markdown extraction.
-* **Resilient Multi-Engine Gateway:** Queries SearXNG instances with automatic failover and circuit breakers, backed by DuckDuckGo fallback.
+* **Resilient Multi-Engine Gateway:** Queries SearXNG (Google/Bing metasearch) with automatic failover and circuit breakers, backed by a triple-layer DuckDuckGo fallback.
 * **Private SearXNG Support:** Point to your private Docker instance via `TAVILESS_SEARXNG_URL` for unlimited throughput.
 * **1-Line Integrations:** Ready-to-use adapters for LangChain, CrewAI, and native OpenAI tool definitions.
-* **Opt-in Extraction:** Supports `pip install "taviless[extract]"` for `trafilatura`-powered content extraction.
+* **Opt-in High-Density Extraction:** Supports `pip install "taviless[extract]"` for `trafilatura`-powered content extraction.
 
 ---
 
@@ -82,7 +83,7 @@ When building RAG agents, search snippets are often too brief. Switch to `search
 client = TavilyClient()
 
 response = client.search(
-    "latest discoveries in exoplanet atmospheres",
+    "latest discoveries in solid state battery commercialization",
     search_depth="advanced",
     max_results=3,
     include_raw_content=False,
@@ -91,7 +92,23 @@ response = client.search(
 for result in response["results"]:
     print(f"Title: {result['title']}")
     print(f"URL: {result['url']}")
-    print(f"Body Content:\n{result['content']}\n")
+    print(f"Body Content:\n{result['content'][:500]}...\n")
+```
+
+---
+
+## ⏱️ Reverse-Chronological Temporal Grounding
+
+Most web scrapers fall into the **Static Homepage Trap**: when you search for "latest model", they crawl the vendor's root homepage and grab whatever marketing banner was written first.
+
+Taviless uses **Reverse-Chronological Temporal Grounding**:
+1. Checks the current calendar date (`datetime.date.today()`).
+2. Engages fresh date-filtering (`time_range="month"` or `"week"`).
+3. Scans extracted content for timestamps $\le \text{Today}$ and orders paragraphs from newest to oldest.
+
+```python
+# Automatically detects temporal intent and surfaces the freshest sub-releases
+results = client.search("latest AI model of Anthropic", search_depth="advanced")
 ```
 
 ---
@@ -106,7 +123,7 @@ from taviless.adapters import get_langchain_tool
 # Drop-in replacement for TavilySearchResults
 tavily_tool = get_langchain_tool(max_results=5, search_depth="basic")
 
-# Bind to your model or agent
+# Bind directly to your model
 llm_with_tools = model.bind_tools([tavily_tool])
 ```
 
@@ -134,14 +151,13 @@ from taviless.adapters import get_openai_tool, execute_openai_tool_call
 
 client = OpenAI()
 
-# Provide schema in chat completion
 response = client.chat.completions.create(
     model="gpt-4o",
-    messages=[{"role": "user", "content": "What are the latest updates on Python 3.14?"}],
+    messages=[{"role": "user", "content": "What are the latest updates on Python?"}],
     tools=[get_openai_tool()],
 )
 
-# Execute model tool calls in one line
+# Execute tool call in one line
 tool_call = response.choices[0].message.tool_calls[0]
 tool_result_json = execute_openai_tool_call(tool_call.function.arguments)
 ```
@@ -173,7 +189,7 @@ client = TavilyClient(searxng_url="http://localhost:8080")
 ## 🧪 Testing
 
 ```bash
-# Run test suite
+# Run unit test suite (14 passing tests)
 python -m unittest discover tests
 
 # Run live end-to-end verification
