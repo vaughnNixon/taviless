@@ -20,6 +20,35 @@ TEMPORAL_KEYWORDS = re.compile(
 )
 
 
+def _days_to_time_range(days: int) -> str:
+    """Map Tavily's `days` window onto the coarse buckets search engines support."""
+    if days <= 1:
+        return "day"
+    if days <= 7:
+        return "week"
+    if days <= 31:
+        return "month"
+    return "year"
+
+
+def _build_engine_query(
+    query: str,
+    include_domains: Optional[List[str]],
+    exclude_domains: Optional[List[str]],
+) -> str:
+    """Push domain filters into the query itself (site:/-site:) so engines apply
+    them *before* ranking, instead of us discarding results afterwards."""
+    parts = [query.strip()]
+    inc = [d.strip() for d in (include_domains or []) if d and d.strip()]
+    exc = [d.strip() for d in (exclude_domains or []) if d and d.strip()]
+    if len(inc) == 1:
+        parts.append(f"site:{inc[0]}")
+    elif inc:
+        parts.append("(" + " OR ".join(f"site:{d}" for d in inc) + ")")
+    parts.extend(f"-site:{d}" for d in exc)
+    return " ".join(parts)
+
+
 class TavilyClient:
     """Drop-in replacement for official TavilyClient without requiring any API keys.
 
@@ -63,6 +92,9 @@ class TavilyClient:
         include_raw_content: bool = False,
         include_images: bool = False,
         time_range: Optional[str] = None,
+        topic: str = "general",
+        days: Optional[int] = None,
+        **kwargs: Any,
     ) -> SearchResponse:
         """Execute a web search and return a Tavily-compatible JSON response.
 
@@ -76,6 +108,11 @@ class TavilyClient:
             include_raw_content: Whether to include full uncleaned HTML in raw_content field.
             include_images: Whether to include an images field.
             time_range: Optional time restriction ('day', 'week', 'month', 'year').
+            topic: Tavily-compatible ("general", "news", "finance"). "news" implies a
+                recency window (default one week) since engines have no news-only mode here.
+            days: Tavily-compatible recency window in days; mapped onto `time_range`.
+            **kwargs: Other Tavily parameters are accepted for drop-in compatibility
+                and ignored (logged at debug level).
 
         Returns:
             Dictionary matching Tavily's exact JSON response structure.
@@ -91,13 +128,25 @@ class TavilyClient:
                 "images": [],
             }
 
+        if kwargs:
+            logger.debug("Ignoring unsupported Tavily parameters: %s", sorted(kwargs))
+
+        # Tavily's topic/days -> time_range (explicit time_range always wins)
+        if not time_range:
+            if days is not None and days > 0:
+                time_range = _days_to_time_range(int(days))
+            elif topic == "news":
+                time_range = "week"
+
         # Auto-detect temporal intent if time_range wasn't explicitly passed
         is_temporal = bool(time_range) or bool(TEMPORAL_KEYWORDS.search(query))
         effective_time_range = time_range or ("month" if is_temporal else None)
 
+        engine_query = _build_engine_query(query, include_domains, exclude_domains)
+
         # Step 1: Fetch search engine results
         raw_results = self.gateway.search(
-            query=query.strip(),
+            query=engine_query,
             max_results=max_results,
             include_domains=include_domains,
             exclude_domains=exclude_domains,
@@ -110,7 +159,7 @@ class TavilyClient:
         if not results and effective_time_range and not time_range:
             results = list(
                 self.gateway.search(
-                    query=query.strip(),
+                    query=engine_query,
                     max_results=max_results,
                     include_domains=include_domains,
                     exclude_domains=exclude_domains,
@@ -261,9 +310,13 @@ def search(
         >>> from taviless import search
         >>> results = search("python asyncio event loop")
     """
-    client = TavilyClient(**kwargs)
+    ctor_keys = {"api_key", "searxng_url", "default_engine", "request_timeout",
+                 "crawl_timeout", "max_workers", "use_trafilatura"}
+    client = TavilyClient(**{k: v for k, v in kwargs.items() if k in ctor_keys})
+    search_kwargs = {k: v for k, v in kwargs.items() if k not in ctor_keys}
     return client.search(
         query=query,
         search_depth=search_depth,
         max_results=max_results,
+        **search_kwargs,
     )

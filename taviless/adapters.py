@@ -40,6 +40,12 @@ OPENAI_TOOL_SCHEMA: Dict[str, Any] = {
                     "description": "The number of search results to return.",
                     "default": 5,
                 },
+                "topic": {
+                    "type": "string",
+                    "enum": ["general", "news"],
+                    "description": "Use 'news' for recent events (implies a recency window).",
+                    "default": "general",
+                },
                 "time_range": {
                     "type": "string",
                     "enum": ["day", "week", "month", "year"],
@@ -84,6 +90,7 @@ def execute_openai_tool_call(
         search_depth=args.get("search_depth", "basic"),
         max_results=args.get("max_results", 5),
         time_range=args.get("time_range"),
+        topic=args.get("topic", "general"),
     )
     return json.dumps(response, ensure_ascii=False)
 
