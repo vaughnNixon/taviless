@@ -16,6 +16,9 @@ from taviless.extractor.trafilatura_ext import HAS_TRAFILATURA, extract_with_tra
 
 logger = logging.getLogger(__name__)
 
+# Standard headers with a Safari-style User-Agent provide clean request compatibility
+# without requiring Chromium-specific Client Hints (sec-ch-ua), avoiding header self-contradiction.
+# Note: Standard HTTP requests do not bypass active JavaScript challenges or TLS fingerprinting.
 DEFAULT_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "

@@ -323,6 +323,8 @@ While Taviless provides a robust multi-engine gateway out of the box, keep the f
    **Public gateways (best-effort):** with no private URL, Taviless races a built-in list of public SearXNG instances in parallel and uses the first that answers. Many public instances disable JSON output or rate-limit bots, and your queries go to third-party servers, so don't send anything sensitive through them.
    Or pass it in code: `TavilyClient(searxng_url="http://localhost:8080")`.
 
+4. **HTTP Request Compatibility & Bot Protection:** Taviless uses standard HTTP headers with a Safari-style User-Agent for clean request compatibility across technical documentation, news, academic archives, and public web pages without sending contradictory Chromium Client Hints. However, website responses vary, and destinations protected by active bot detection systems (e.g., Cloudflare Turnstile, DataDome, or interactive CAPTCHAs) may restrict automated requests. When an automated fetch is restricted or fails, Taviless handles it gracefully: it logs a notice in the `warnings` field, retains the original search engine snippet, and continues execution so your AI agent loop never crashes.
+
 ---
 
 ## 🧪 Testing
