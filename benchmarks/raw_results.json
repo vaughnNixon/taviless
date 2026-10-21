@@ -1,0 +1,643 @@
+[
+  {
+    "benchmark": {
+      "name": "1. Obscure Archival Primary Source (1970 NBS Bulletin)",
+      "query": "NBS Technical News Bulletin July 1970 Vol 54 No 7 Erlenmeyer flask transducer syringe page 148",
+      "search_depth": "basic",
+      "include_answer": true,
+      "domains": {},
+      "ground_truth_keywords": [
+        "archive.org",
+        "technical news",
+        "148"
+      ]
+    },
+    "tavily": {
+      "success": true,
+      "latency": 1.6883397102355957,
+      "data": {
+        "query": "NBS Technical News Bulletin July 1970 Vol 54 No 7 Erlenmeyer flask transducer syringe page 148",
+        "follow_up_questions": null,
+        "answer": "The sources mention an Erlenmeyer flask as a common laboratory equipment used for pouring, mixing, storage, cooling, heating, filtering, and incubating. They describe it as having a conical shape with a wide flat bottom and tapered neck, available in sizes from 25 mL to 6000 mL, and made from borosilicate glass or plastic. The NBS Technical News Bulletin is mentioned as a monthly publication that reports on the National Bureau of Standards' programs and new publications. The sources do not provide specific details about a \"NBS Technical News Bulletin July 1970 Vol 54 No 7 Erlenmeyer flask transducer syringe page 148\" or any direct reference to a transducer syringe on that page.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication305supp2.pdf",
+            "title": "Publications of the National Bureau of Standards 1970",
+            "content": "A descriptive listing of the various standard reference materi-als distributed at the present time by the National Bureau of Standards is given. These materials are used to calibrate mea-surement systems and to provide a central basis for uniformity and accuracy of measurement. The unit and quantity, the type, and the certified characterization are listed for each material, as well as directions for ordering. Announcements of new and renewal materials are made in the NBS Technical News [...] Technical News Bulletin. Issued monthly by the National Bureau of Standards. In addi-tion to publishing technical news of the Bureau, the Bulletin announces all new publications by members of the staff, includ-ing those appearing in other journals. Avail-able from the Superintendent of Documents, U.S. Government Printing Office, Washington, D.C.\n20402.\nAnnual subscription, $3.00; $4.00 foreign. Single copies, 15 cents each.\nMonthly Catalog of United States Govern-ment Publications. [...] Issued quarterly.\nEditor: M. Greenspan Associate Editors: G. F. Montgomery, R. V.\nSmith, and A. F. Schmidt 1.3. TECHNICAL NEWS BULLETIN Reports results of Bureau's programs in measurement standards and techniques, properties of matter and materials, engineer-ing standards and services, instrumentation, and automatic data processing.",
+            "score": 0.42821008,
+            "raw_content": null,
+            "id": "459203-00"
+          },
+          {
+            "url": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-1e6fcfef0ffc7545cea4792e9aa6f78b/pdf/GOVPUB-C13-1e6fcfef0ffc7545cea4792e9aa6f78b.pdf",
+            "title": "Catalog of artifacts on display in the NBS Museum",
+            "content": "1939) .\n-147-Electric hygrometer (1938) M33 -148-RADIOSONDES 1935 M163, 164, 165, 167 Practical systems for the study of upper-air phenomena by small radio-equipped sounding balloons were first exam.ined at NBS for the Weather Bureau.\nA design using the Olland principle and a 5 -meter transmitter was proposed in 1935 and later improved by using a light-weight constant-speed dc motor to drive a rotating contact. [...] However, if one really wants to understand the artifact, this catalog will tell how the instrument worked, what its technical purpose was, and what part it played in the long development of scientific achievement at the National Bureau of Standards.\nFor the scientist or engineer who wants further details, these may be found in the references appended, all of which are available in our library. [...] J., Standard Cells: Their Construction, Maintenance, and Characteristics, Nat.\nBur.\nStand.\n(U.S.), Monogr.\n84 (1965).\nEicke, W.\nG.\nand Cameron, J.\nM.\n, Designs for Surveillance of the Volt Maintained by a Small Group of Saturated Standard Cells, Nat.\nBur.\nStand.\n(U.S.), Tech.\nNote 430 (Oct.\n1967).\nNat.\nBur.\nStand.\n(U.S.), Tech. News Bull.\n54_, 43 (Feb.\n1970).\nField, B.\nF., Finnegan, T.",
+            "score": 0.22403039,
+            "raw_content": null,
+            "id": "38c07a-01"
+          },
+          {
+            "url": "https://indico.eli-laser.eu/event/38/attachments/139/426/Common%20Laboratory%20Equipment_2.3.pdf",
+            "title": "Common Laboratory Equipment",
+            "content": "1 Common Laboratory Equipment 1 PIPETTES 2 1.1 AIR DISPLACEMENT PIPETTES 2 1.2 PASTEUR PIPETTES 4 1.3 ELECTRICAL PIPETTES 5 1.4 VOLUMETRIC PIPETTES 5 1.5 ELECTRIC PIPETTE CONTROLLER + SEROLOGICAL PIPETTES 6 2 FLASKS 8 2.1 ERLENMEYER FLASK 8 2.2 BEAKER 9 2.3 VOLUMETRIC FLASK 9 2.4 GRADUATED CYLINDER 10 2.5 ROUND BOTTOM FLASK 11 2.6 TWO NECKED FLASK 11 2.7 FILTERING FLASK (B\u00dcCHNER FLASK) 11 2.8 FLAT BOTTOM FLASK(FLORENCE FLASK) 12 2.9 SEPARATORY FUNNEL 12 3 LAB BOTTLES 13 3.1 CLEAR REAGENT BOTTLES [...] accuracy) and press up button until the liquid arrived at the desired volume. 5 Press down button until the pipette is emptied to the most bottom graduation. Demonstration video References  \u2022  e-controllers/565751 8 2 FLASKS 2.1 ERLENMEYER FLASK Description: Conical shape with a wide flat bottom and tapered neck. Common Uses: Pouring, mixing, storage, cooling, heating, filtrating and incubating Variants: Available in sizes from 25 mL to 6000 ml, with wide or narrow mouth designs. Materials: [...] designs. Materials: borosilicate glass or plastic. Closure Options: Screw caps or stoppers. Important Note: Graduations on graduated flasks are approximations, not for precise measurements. Demonstration video References \u2022  9G-krzo \u2022  WaR95YoU \u2022  e/90111066/erlenmyer-flasks \u2022  \u2022  9 2.2 BEAKER Description: Cylindrical with a flat bottom and a lip for pouring. Common Uses: Mixing, heating, collecting liquid (after titration for example) and holding liquids. Variants: Available in various sizes",
+            "score": 0.22194918,
+            "raw_content": null,
+            "id": "68768d-02"
+          },
+          {
+            "url": "https://assets-labs.hamiltoncompany.com/File-Uploads/Syringe_Needle_Reference-Guide.pdf?v=1696888429",
+            "title": "SYRINGES & NEEDLES",
+            "content": "Syringe Technical Reference This section contains the most frequently requested syringe reference information including: care and use, calibration, operating parameters, and more. [...] Reference Needles Index The page numbers listed to the right mark the beginning of the part numbers available for each syringe series. For a detailed explanation of each syringe series refer to the Syringe 101 section on page 10. [...] Density of Water at Various Temperatures \u00b0C g/mL 18 0.998595 19 0.998405 20 0.998203 21 0.997992 22 0.997770 23 0.997538 24 0.997296 25 0.997044 26 0.996783 27 0.996512 28 0.996232 29 0.995944 30 0.995646 Data from CRC Handbook of Chemistry and Physics, 50th Edition, 1969, page F-4 Calculating Accuracy and Precision Step 4 Step 5 Step 2 Step 3 Step 1 91 SYRINGE TECHNICAL REFERENCE | SYRINGE CALIBRATION Syringes Introduction General Syringes Chromatography and Analysis Syringes Life Science",
+            "score": 0.19966704,
+            "raw_content": null,
+            "id": "a36c0c-03"
+          },
+          {
+            "url": "https://nbsscientific.com",
+            "title": "Laboratory Equipment & Lab Instruments - NBS Scientific",
+            "content": "\u201cWe were hoping to replace our old existing equipment. The technical expertise at NBS Scientific was excellent. We went through several options that solved my needs and we narrowed down a suitable option that fit our price range and features.\u201d [...] We supply our customers with high-quality products to help them improve their sample collection, sample storage, sample tracking, and lab automation. We also provide a wide range of technical services to ensure their equipment functions properly every day of the year.\n\n Get to Know Us\n Discover our portfolio\n\n## Discover our product portfolio\n\nAnd shop online! [...] \"NBS Scientific provided excellent communication and timelines on shipment volumes, both of which are incredibly important factors when trying to plan and implement a testing strategy of this scale. Before we set up our initial purchasing agreement with NBS, I can't tell you how many hours I would spend week after week trying to order tubes, only to have them get backordered. Being able to work out a long-term plan that would answer all of our needs and then get timely communication from our",
+            "score": 0.15270098,
+            "raw_content": null,
+            "id": "8eafbf-04"
+          }
+        ],
+        "response_time": 0.0,
+        "request_id": "b89902d9-7f60-4169-b358-edc8470e6063"
+      }
+    },
+    "taviless": {
+      "success": true,
+      "latency": 3.739083766937256,
+      "data": {
+        "query": "NBS Technical News Bulletin July 1970 Vol 54 No 7 Erlenmeyer flask transducer syringe page 148",
+        "results": [
+          {
+            "title": "Full text of \"Technical News Bulletin - volume 54 no. 4\"",
+            "url": "https://archive.org/stream/technicalnewsbul544nati/technicalnewsbul544nati_djvu.txt",
+            "content": "Full text of \"Technical News Bulletin - volume 54 no. 4\"\n\n\nSkip to main content\n\n\nKeep the news in the Wayback Machine. Sign Fight for the Future's letter.\n\n\n### Internet Archive Audio\n\n\nLive Music\nArchive\n\nLibrivox\nFree Audio\n\n\n#### Featured\n\n\n- All Audio\n\n\n- Grateful Dead\n\n\n- Netlabels\n\n\n- Old Time Radio\n\n\n- 78 RPMs\nand Cylinder Recordings\n\n\n#### Top\n\n\n- Audio Books\n& Poetry\n\n\n- Computers,\nTechnology and Science\n\n\n- Music, Arts\n& Culture\n\n\n- News &\nPublic Affairs\n\n\n- Spirituality\n& Religion\n\n\n- Podcasts\n\n\n- Radio News\nArchive\n\n\n### Images\n\n\nMetropolitan Museum\n\nCleveland\nMuseum of Art\n\n\n#### Featured\n\n\n- All Images\n\n\n- Flickr Commons\n\n\n- Occupy Wall\nStreet Flickr\n\n\n- Cover Art\n\n\n- USGS Maps\n\n\n#### Top\n\n\n- NASA Images\n\n\n- Solar System\nCollection\n\n\n- Ames Research\nCenter\n\n\n### Software\n\n\nInternet\nArcade\n\nConsole Living Room\n\n\n#### Featured\n\n\n- All Software\n\n\n- Old School\nEmulation\n\n\n- MS-DOS Games\n\n\n- Historical\nSoftware\n\n\n- Classic PC\nGames\n\n\n- Software\nLibrary\n\n\n#### Top\n\n\n- Kodi\nArchive and Support File\n\n\n- Vintage\nSoftware\n\n\n- APK\n\n\n- MS-DOS\n\n\n- CD-ROM\nSoftware\n\n\n- CD-ROM\nSoftware Library\n\n\n- Software Sites\n\n\n- Tucows\nSoftware Library\n\n\n- Shareware\nCD-ROMs\n\n\n- Software\nCapsules Compilation\n\n\n- CD-ROM Images\n\n\n- ZX Spectrum\n\n\n- DOOM Level CD\n\n\n### Texts\n\n\nOpen Library\n\nAmerican\nLibraries\n\n\n#### Featured\n\n\n- All Texts\n\n\n- Smithsonian\nLibraries\n\n\n- FEDLINK (US)\n\n\n- Genealogy\n\n\n- Lincoln\nCollection\n\n\n- Democracy\u2019s Library\n\n\n#### Top\n\n\n- American\nLibraries\n\n\n- Canadian\nLibraries\n\n\n- Universal\nLibrary\n\n\n- Project\nGutenberg\n\n\n- Children's\nLibrary\n\n\n- Biodiversity\nHeritage Library\n\n\n- Books by\nLanguage\n\n\n- Folkscanomy\n\n\n- Government Documents\n\n\n### Video\n\n\nTV News\n\nUnderstanding\n9/11\n\n\n#### Featured\n\n\n- All Video\n\n\n- Prelinger\nArchives\n\n\n- Democracy Now!\n\n\n- Occupy Wall\nStreet\n\n\n- TV NSA Clip\nLibrary\n\n\n#### Top\n\n\n- Animation\n& Cartoons\n\n\n- Arts & Music\n\n\n- Computers\n& Technology\n\n\n- Cultural\n& Academic Films\n\n\n- Ephemeral Films\n\n\n- Movies\n\n\n- News &\nPublic Affairs\n\n\n- Spirituality\n& Religion\n\n\n- Sports Videos\n\n\n- Television\n\n\n- Videogame\nVideos\n\n\n- Vlogs\n\n\n- Youth Media\n\n\n#### Mobile Apps\n\n\n-\nWayback Machine (iOS)\n\n\n-\nWayback Machine (Android)\n\n\n#### Browser Extensions\n\n\n-\nChrome\n\n\n-\nFirefox\n\n\n-\nSafari\n\n\n-\nEdge\n\n\n#### Archive-It Subscription\n\n\n-\nExplore the Collections\n\n\n-\nLearn More\n\n\n-\nBuild Collections\n\n\n- About\n\n\n- Blog\n\n\n- Events\n\n\n- Projects\n\n\n- Help\n\n\n- Donate\n\n\n- Contact\n\n\n- Jobs\n\n\n- Volunteer\n\n\n-\nAbout\n\n\n-\nBlog\n\n\n-\nEvents\n\n\n-\nProjects\n\n\n-\nHelp\n\n\n-\nDonate\n\n\n-\nContact\n\n\n-\nJobs\n\n\n-\nVolunteer\n\n\n#\nFull text of \"Technical News Bulletin - volume 54 no. 4\"\n\n\n##\nSee other formats\n\n\n`April 1970\n\n\nA UNITED STATES\nDEPARTMENT OF\nCOMMERCE\nPUBLICATION\n\n\nNATIONAL BUREAU OF STANDARDS\n\n\nnT OF 6,\nOy,\nNe\n+\n\n\nPo\n\n\n\u00a9; Technical N Bulleti\n7 Technical News bulletin\n\n\nUNITED |\n\nSTATES \u2014\nDEPARTMENT\nOF\nCOMMERCE\n\n\nNATIONAL BUREAU OF STANDARDS\n\n\nTechnical News Bulletin\n\n\nAPRIL 1970 / VOL. 54, NO. 4 / ISSUED MONTHLY\n\n\nCONTENTS\n\n\n75 Determination of Oxygen and Carbon Content of\nSodium\n76 Frequency Range of Piezoelectric Accelerometers\n\n\nlohan\n\n\n77 No Fluctuation in n-p Cross Section\n\n78 NSRDS News\n\n80 Linerboard Reference Program for Paper Testing\nLaboratories\n\n81 Battery Additive\u2014Findings of an In-House Field\nExperiment\n\n82 lon-Exchange Beads\u2014The \u201cMicromini\u201d Calibrators\n\n85 FIPS Notes\n\n88 Conversion of Thermodynamic Properties from IPTS\n48 to 63\n\n88 Standards and Calibration\n\n89 Conference and Publication Briefs\n\n91 Publications of the National Bureau of Standards\n\n\nFRONT COVER: Composite of x-ray area scans (X700) of\nion exchange microstandard particles uses color to distinguish\nthe element contained in the microstandards\u2014lead (blue), calcium\n(red), and copper (green). (See page 82.)\n\n\nBACK COVER: The pastel shades in this photomicrograph\n(X900) of a lunar metal globule reveal its composition in terms of\nthe observed structure. A color separation technique (See Sept.\n1969 TNB) developed by H. Yakowitz and K. F. J. Heinrich\narbitrarily colors the iron-nickel components pink, the troilite\n(FeS) at the bottom of the crater yellowish green, and what is\nprobably siliceous ejecta from the crater light blue. This Apollo\nXI sample is meteoritic in nature and cooled at a rate of 2.5 \u00b0C\nper second on the lunar surface. The globule was probably a metal\nregion in a stony meteorite that was shock melted on impact with\nthe moon.\n\n\nNat. Bur. Stand. (U.S.), Tech. News Bull.\nCODEN: NBSTA 54 (4) 73-92 (1970).\n\n\nSuperintendent of Documents Catalog No. C13.13:54/4\nLibrary of Congress Catalog No. 25-26527\n\n\nU.S. DEPARTMENT OF COMMERCE\nMaurice H. Stans, Secretary\n\n\nNATIONAL BUREAU OF STANDARDS\nL. M. Branscomb, Director\n\n\nPrepared by the NBS Office of Tech-\nnical Information and Publications,\nWashington, D.C. 20234\n\n\nW. R. Tilley, Chief\n\n\nManaging Editor\nR. W. Seward\nContributing Editors\n\n\nW. J. Alspach, L. K. Armstrong, S. L.\nButrymowicz, R. T. Cook, D. K. Coyle,\nC. R. Naas, A. Schach, D. E. Webb\n\n\nG. J. Connell, Visual Editor\n\n\nThe National Bureau of Standards\nserves as a focal point in the Fed- \u2014\neral Government for assuring maxi-\n\nmum application of the physical and\n\nengineering sciences to the advance-\n\nment of technology in industry and\ncommerce. For this purpose, the\n\nBureau is organized as follows:\n\n\ne The Institute for Basic Standards\n\u00ae The Institute for Materials Re-\nsearch :\n\n@ The Institute for Applied Tech-\nnology :\n\nCenter for Radiation Research\n\nCenter for Computer Sciences\nand Technology a\n\n\nThe TECHNICAL NEWS BULLETIN is\npublished to keep science and indus-\ntry informed regarding the technical\nprograms, accomplishments, and ac-\ntivities of NBS. Ss\nFor sale by the Superintendent of\nDocuments, U.S. Government Print-\ning Office, Washington, D.C. 20402.\nAnnual subscription: Domestic, $3;\nforeign, $4; single copy, 30 cents.\nUse of funds for printing this publi-\ncation approved by the Director of\nthe Bureau of the Budget (June 22,\n1966).\n\n\nDETERMINATION OF\n\n\nOXYGEN AND CARBON\nCONTENT OF SODIUM\n\n\nLiquIp SoDIUM IS USEFUL as a heat\ntransfer medium in nuclear power re-\nactors because of its favorable thermo-\ndynamic and nuclear properties. These\nproperties include good thermal sta-\nbility, high boiling temperature, high\nheat transfer coefficient and fairly low\nthermal neutron cross section. How-\never, a major disadvantage of sodium\nis its ability to corrode and carburize\nstructural components with which it\ncomes in contact. Scientists believe\nthat these effects are caused by the\ntrace elements carbon and oxygen.\nTherefore, reliable analyses for these\nelements in sodium, at levels of a few\nparts-per-million, will help better\nunderstand the destructive reaction\nprocesses.\n\nGeorge J. Lutz of the NBS Institute\nfor Materials Research developed tech-\nniques * * utilizing photon activation\nanalysis to determine the oxygen and\ncarbon content of sodium. The method\nentails bombarding the sodium sample\nwith high energy photons, producing\nradioactive isotopes of carbon and\noxygen. The isotopes are then sepa-\nrated from the sample and the amounts\nof each isotope are determined.\n\nThe NBS electron linear accelerator\nwas used to irradiate the samples.\nElectrons, accelerated to 35 MeV, im-\npinge on a water-cooled tungsten tar-\n\n\nAbove left: Burning sodium in oxygen\nconverts radioactive carbon to sodium\ncarbonate, which is then treated to release\nthe carbon for quantitative analysis. Left:\nSectional view of irradiation chamber in\nmagnet room of NBS LINAC. Electron beam\nenters from right, penetrates six tungsten\nplates (A) to produce high-energy photons\nthat irradiate the sodium sample in\naluminum container (B).The photon beam\nis absorbed in a water-cooled beam dump\n(C). Right: From a TV monitor Larry W.\nMasters directs technicians in the LINAC\u2019s\nexperimental area. The technicians focus\nthe camera on activation analysis apparatus.\n\n\nget, and produce high energy photons\n(bremsstrahlung) which penetrate the\nsample. Compressed air rapidly trans-\nports the sample, in its aluminum con-\ntainer through an aluminum tube, to\nand from the irradiation area. This\nmethod enables the scientist to rapidly\nanalyze very short-lived radioactive\nisotopes. Prior to analysis, the sodium\nis etched in an alcohol-water mixture\nto remove surface contamination.\n\nCarbon content is determined by\nfirst burning the sodium in oxygen,\nconverting the carbon to sodium car-\nbonate. Adding acid liberates radio-\nactive carbon as carbon dioxide,\nwhich is trapped in a sodium hydrox-\nide solution. A gamma scintillation\ndetector then counts the amount of\nradioactive carbon in the solution.\n\nFor determining oxygen content,\nthe sodium is dissolved in water, and\nthe radioactive oxygen exchanges with\nthe oxygen in the water. A portion of\nthe water is distilled from the mixture\nand the radioactive oxygen is quanti-\ntatively detected.\n\n\n1 Lutz, G. J., Determination of oxygen in so-\ndium by photon activation analysis, 158th Ameri-\ncan Chemical Society Meeting, New York, Sept.\n7-12, 1969, and Anal. Chem. (in press).\n\n2 Lutz, G@. J., and DeSoete, D. A., Determina-\ntion of carbon in sodium by photon activation\nanalysis, Anal. Chem. 40, No. 4, 820-822\n\n\n(April 1968).\n\n\n75\n\n\nFREQUENCY RANGE\nOF PIEZOELECTRIC\nACCELEROMETERS\n\n\nTHE PIEZOELECTRIC ACCELEROMETER is a valuable instru-\nment of today\u2019s science and technology, but for accuracy\ncare must be taken to use it only at frequencies below the\nresonance of the vibrating system. This resonance can be\ndetermined by one of two methods: electrically driving\nthe accelerometer and monitoring the displacement, or\nmechanically driving the entire system while monitoring\naccelerometer electrical output. In some cases these\nmethods produce different values of resonance, which can\nlead to unexpected errors if the higher value is taken as\nthe correct one without further checking.\n\nStudy of resonant frequency determinations by the\nelectrical and mechanical methods at the Bureau disclosed\na major reason for the discrepancies. Nathan Newman,",
+            "score": 0.7,
+            "raw_content": null
+          },
+          {
+            "title": "AHN myBottle Erlenmeyer Flasks - YouTube",
+            "url": "https://www.youtube.com/watch?v=ANFO_FOidVk",
+            "content": "AHN myBottle Erlenmeyer Flasks - YouTube\n\n\nAboutPressCopyrightContact usCreatorsAdvertiseDevelopersTermsPrivacyPolicy & SafetyHow YouTube worksTest new features\n\n\n\u00a9 2026 Google LLC",
+            "score": 0.47,
+            "raw_content": null
+          },
+          {
+            "title": "tandfonline.com/doi/abs/10.1080/00401706.1970.10488634",
+            "url": "https://www.tandfonline.com/doi/abs/10.1080/00401706.1970.10488634",
+            "content": "...Biased estimation for nonorthogonal problems, Technometrics, Vol. 12, No...",
+            "score": 0.45,
+            "raw_content": null
+          },
+          {
+            "title": "APDCL | Assam Power Distribution Company Limited",
+            "url": "https://www.apdcl.org/",
+            "content": "Access APDCL consumer services, prepaid recharge, pay bills, digital statements, and online payments.",
+            "score": 0.34,
+            "raw_content": null
+          },
+          {
+            "title": "Google",
+            "url": "https://www.google.com/?hl=en",
+            "content": "Main Page (in English).",
+            "score": 0.33,
+            "raw_content": null
+          }
+        ],
+        "response_time": 3.74,
+        "answer": "Full text of \"Technical News Bulletin - volume 54 no. (Sources: archive.org)",
+        "images": []
+      }
+    }
+  },
+  {
+    "benchmark": {
+      "name": "2. Modern Version-Specific Python 3.13 Free-Threading API",
+      "query": "Python 3.13 disable GIL environment variable and sys function",
+      "search_depth": "basic",
+      "include_answer": true,
+      "domains": {},
+      "ground_truth_keywords": [
+        "python_gil",
+        "_is_gil_enabled"
+      ]
+    },
+    "tavily": {
+      "success": true,
+      "latency": 0.2741701602935791,
+      "data": {
+        "query": "Python 3.13 disable GIL environment variable and sys function",
+        "follow_up_questions": null,
+        "answer": "To disable the GIL in Python 3.13, you can use the environment variable `PYTHON_GIL=0` or the command line flag `-X gil 0`. To verify the GIL status, use `sys._is_gil_enabled()`, which will return `False` if the GIL is disabled. For installation, you can use `pyenv` to install the free-threaded build or use the `python3.13-nogil` package on Ubuntu. The official Python documentation also mentions using the `--disable-gil` configure option when building from source.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://medium.com/@mitesh.singh.jat/gil-becomes-optional-in-python-3-13-a-game-changer-for-multithreading-4c5d28856803",
+            "title": "GIL Becomes Optional in Python 3.13: A Game-Changer for Multithreading!",
+            "content": "Python 3.13 introduces an experimental feature that allows you to disable the GIL altogether! This means that threads can run more concurrently, which can lead to significant performance improvements for certain types of workloads.\n\nTo take advantage of this new feature, you\u2019ll need to download and install the beta version(rc1) of Python 3.13, which includes a free-threaded build configuration. From there, you can enable or disable the GIL using environment variables or command-line options. [...] ## PYTHON_GIL=0 (GIL disabled) using Python 3.13-rc  \n$ PYTHON_GIL=0 ./gil_test2.py  \nPython Version: 3.13.0rc1 experimental free-threading build (main, Aug 13 2024, 11:52:30) [GCC 12.2.0]  \nGIL is currently disabled  \nFunction 'single_threaded_task' took 7.5143 seconds to execute.  \nFunction 'multi_threaded_task' took 1.3645 seconds to execute.  \nFunction 'multi_processing_task' took 1.6192 seconds to execute.  \n  \n## PYTHON_GIL=1 (GIL active) using Python 3.13-rc [...] status = sysconfig.get_config_var(\"Py_GIL_DISABLED\")  \n  \n if py_version >= 3.13:  \n status = sys._is_gil_enabled()  \n if status is None:  \n print(\"GIL cannot be disabled for Python version <= 3.12\")  \n if status == 0:  \n print(\"GIL is currently disabled\")  \n if status == 1:  \n print(\"GIL is currently active\")  \n  \n nums = [300001, 300001, 300001, 300001, 300001, 300001]  \n  \n # Run single-threaded task  \n single_threaded_task(nums)  \n  \n # Run multi-threaded task",
+            "score": 0.8430832,
+            "raw_content": null,
+            "id": "19d965-00"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=hvagSQrjafU",
+            "title": "How to Turn Off Python's GIL (3.13+)",
+            "content": "[7:21] There's an environment variable called python gill and a command line flag. You can do -xgill.\n[7:27] And either of those will put it back to the way that it was before with the gill enabled. Now, this is actually really useful because you can run the exact\n[7:34] same code and test it with the gill enabled and with it disabled and see what the performance is like or if there's any bugs that get introduced, [...] [4:38] check if you're going to have code do one thing if the gill is enabled and another if gil is not enabled. And that is sysconfig.getconfigvar\n[4:46] and then pi_gill disabled. If I press that, it gives me a zero. It would be a one if the gill was disabled. And I'm just going to exit out\n[4:55] of this. The last way that I'm going to check is by running python-v all uppercase. And I get that same [...] ### Transcript\n[0:00] This Python code is running multiple CPU cores at once and it's using an official freethreaded build of Python. Since\n[0:07] Python 3.13, you can install a version of CPython that runs without the GIL or the global interpreter lock. Today, I'll\n[0:15] show you how to install and how to verify that GIL is actually disabled and the things that can break when you run the freethreaded version of Python.",
+            "score": 0.79542017,
+            "raw_content": null,
+            "id": "057887-01"
+          },
+          {
+            "url": "https://stackoverflow.com/questions/79122522/how-to-disable-the-gil-in-python3-13",
+            "title": "How to disable the GIL in python3.13?",
+            "content": "Viewed 9k times \n\nThis question shows research effort; it is useful and clear\n\n 8 \n\nThis question does not show any research effort; it is unclear or not useful\n\nSave this question.\n\n\n\n:\n\nCopy\n\n```bash\npyenv install 3.13t-dev\n$HOME/.pyenv/versions/3.13t-dev/bin/python3.13t -m venv .venv\nsource .venv/bin/activate\n```\n\nYou can check it with `sys._is_gil_enabled()`\n\nCopy\n\n```bash\npython -c 'import sys; print(sys._is_gil_enabled())'\n# you should get 'False'\n```\n\nShare\n\nShare a link to this answer [...] Dj Mamana\n\nDj MamanaDec 26, 2024 at 19:16\n\nUbunt users can use: ``` sudo add-apt-repository ppa:deadsnakes sudo apt-get update sudo apt-get install python3.13-nogil ```\n\n2024-12-26T19:16:46.087Z+00:00\n\n0\n\nReply\n\n   Copy link\n\nImage 8\n\nCiro Santilli OurBigBook.com\n\nCiro Santilli OurBigBook.comMay 20, 2025 at 8:57 [...] activerecord\n   replace\n   group-by\n   graph\n   vim\n   scikit-learn\n   websocket\n   boost\n   file-upload\n   junit\n   memory-management\n   sass\n   async-await\n   import\n   eloquent\n   error-handling\n   dynamic\n   deep-learning\n   silverlight\n   dependency-injection\n   soap\n   apache-spark-sql\n   layout\n   charts\n   svn\n   gridview\n   browser\n   while-loop\n   deployment\n   vuejs2\n   highcharts\n   google-bigquery\n   dll\n   view\n   ffmpeg\n   foreach\n   makefile\n   c#-4.0\n   redis",
+            "score": 0.7923522,
+            "raw_content": null,
+            "id": "37ff27-02"
+          },
+          {
+            "url": "https://docs.python.org/3/howto/free-threading-python.html",
+            "title": "Python support for free threading \u2014 Python 3.15.0 documentation",
+            "content": "Starting with the 3.13 release, CPython has support for a build of Python called free threading where the global interpreter lock (GIL) is disabled. Free-threaded execution allows for full utilization of the available processing power by running threads in parallel on available CPU cores. While not all software will benefit from this automatically, programs designed with threading in mind will run faster on multi-core hardware. [...] ## Installation\u00b6\n\nStarting with Python 3.13, the official macOS and Windows installers optionally support installing free-threaded Python binaries. The installers are available at .\n\nFor information on other platforms, see the Installing a Free-Threaded Python, a community-maintained installation guide for installing free-threaded Python.\n\nWhen building CPython from source, the `--disable-gil` configure option should be used to build a free-threaded Python interpreter.",
+            "score": 0.752468,
+            "raw_content": null,
+            "id": "bdaa25-03"
+          },
+          {
+            "url": "https://dev.to/hugovk/help-us-test-free-threaded-python-without-the-gil-1hgf",
+            "title": "Help us test free-threaded Python without the GIL - DEV Community",
+            "content": "```\n$  # Regular build $  -c\"import sysconfig; print(sysconfig.get_config_var('Py_GIL_DISABLED'))\" 0 $  # Free-threaded build $  -c\"import sysconfig; print(sysconfig.get_config_var('Py_GIL_DISABLED'))\" 1 \n```\n\nBy default, the GIL is disabled for free-threaded builds, and can be re-enabled by setting the `PYTHON_GIL` environment variable to `1` or running Python with `-X gil 1`. You can check with `sys._is_gil_enabled()`: [...] ## Fedora\n\nFedora uses the `python3.13t` executable name as decided by the Steering Council:\n\n```\n$  # Install $  sudo install $  # Run $  -c\"import sysconfig; print(sysconfig.get_config_var('Py_GIL_DISABLED'))\" 1 $  -c\"import sys; print(sys._is_gil_enabled())\" False \n```\n\n## How to check your build\n\nTo confirm if you're using a free-threaded build, check the double `--version` option (starting in beta 2): [...] -c \"import sysconfig; print(sysconfig.get_config_var('Py_GIL_DISABLED'))\"python -c \"import sys; print(sys._is_gil_enabled())\"",
+            "score": 0.7192461,
+            "raw_content": null,
+            "id": "e34703-04"
+          }
+        ],
+        "response_time": 0.0,
+        "request_id": "b867a11d-70ed-4967-b5c9-386dd37109d0"
+      }
+    },
+    "taviless": {
+      "success": true,
+      "latency": 5.435338497161865,
+      "data": {
+        "query": "Python 3.13 disable GIL environment variable and sys function",
+        "results": [
+          {
+            "title": "python - How to disable the GIL in python3.13? - Stack Overflow",
+            "url": "https://stackoverflow.com/questions/79122522/how-to-disable-the-gil-in-python3-13",
+            "content": "I am excited to experiment with python3.13 with new GIL optional feature. I want to explore the impact of disabling GIL to achieve real multi-threading in python. I want a real world example to compare the python3.13 performance for multi-threading with GIL enabled and disabled.",
+            "score": 0.72,
+            "raw_content": null
+          },
+          {
+            "title": "How to disable GIL (Global Interpreter Lock) in Python 3.13",
+            "url": "https://dev.to/sachingeek/how-to-disable-gil-global-interpreter-lock-in-python-313-2264",
+            "content": "How to disable GIL (Global Interpreter Lock) in Python 3.13 - DEV Community\n\n\nThe Python organization has released the official version of Python 3.13, which includes many major changes.\n\n\nOne of the major changes we get is making GIL (Global Interpreter Lock) optional in Python 3.13.\n\n\nIn this article, you\u2019ll see how to disable GIL in Python 3.13 to make multi-threaded programs faster.\n\n\n##\n\n\nDisable GIL in Python 3.13\n\n\nFirst, download the official Python 3.13 on your local machine. Then proceed to install the Python executable file.\n\n\nFollow the steps just as you install any Python version, you will see a step in which you are asked to choose the advanced installation options.\n\n\nNow select the checkbox appearing at the end, this will install the different executable Python build with the name `python3.13t` or `python3.13t.exe` .\n\n\nThis will allow you to optionally disable or enable GIL in the runtime. Now proceed to install the setup.\n\n\nAfter completing the setup for Python 3.13, if you look at the file location of Python 3.13, you will see that you also got a different Python build called `python3.13t` .\n\n\nIf you remember that \u201cfree-threaded binaries\u201d mode was marked \u201cexperimental\u201d, this means that you don\u2019t get GIL disabled by default.\n\n\nBut how do I disable GIL? Python organization provided a different CPython build which is also called \u201cFree-threaded CPython\u201d.\n\n\nFree-threaded CPython will help you disable GIL. Let\u2019s see how to do it.\n\n\nLet\u2019s say, you have a Python script and you want it to run with GIL disabled. You can use the following command.\n\n\n` `python3.13t main.py\n` `\n\n\nThis CPython build comes with GIL disabled by default.\n\n\n##\n\n\nPractical\n\n\nI have the following Python script ( `main.py` ) that runs a multi-threaded task and calculates the time taken to complete the execution.\n\n\n` `import sys\nimport sysconfig\nimport math\nimport time\nimport threading\n\ndef compute_factorial(n):\nreturn math.factorial(n)\n\n# Multi-threaded\ndef multi_threaded_compute(n):\nthreads = []\n# Create 5 threads\nfor num in n:\nthread = threading.Thread(target=compute_factorial, args=(num,))\nthreads.append(thread)\nthread.start()\n\n# Wait for all threads to complete\nfor thread in threads:\nthread.join()\n\nprint(\"Factorial Computed.\")\n\ndef main():\n# Checking Version\nprint(f\"Python version: {sys.version}\")\n\n# GIL Status\nstatus = sysconfig.get_config_var(\"Py_GIL_DISABLED\")\nif status is None:\nprint(\"GIL cannot be disabled\")\nif status == 0:\nprint(\"GIL is active\")\nif status == 1:\nprint(\"GIL is disabled\")\n\nnumlist = [100000, 200000, 300000, 400000, 500000]\n\n# Multi-threaded Execution\nstart = time.time()\nmulti_threaded_compute(numlist)\nend = time.time() - start\nprint(f\"Time taken : {end:.2f} seconds\")\n\nif __name__ == \"__main__\":\nmain()\n` `\n\n\nNow, we\u2019ll run this script with and without free-threaded CPython.\n\n\nWith GIL enable (without free-threaded CPython)\n\n\n` `python main.py\n` `\n\n\nWith GIL disable (with free-threaded CPython)\n\n\n` `python3.13t main.py\n` `\n\n\nThat\u2019s all for now.\n\n\nKeep Coding\u270c\u270c\n\n\nFor further actions, you may consider blocking this person and/or reporting abuse\n\n\nWe're a place where coders share, stay up-to-date and grow their careers.\n\n\nLog in\n\n\nCreate account",
+            "score": 0.71,
+            "raw_content": null
+          },
+          {
+            "title": "How Python 3.13 Disables the GIL at Compile Time - python",
+            "url": "https://salivity.github.io/python/article/how-python-3-13-disables-the-gil-at-compile-time",
+            "content": "Runtime Fallback Support Although the lock is dismantled at compile time, the free-threaded binary retains an optional, coarse-grained lock mechanism that can be dynamically toggled at runtime. Users running a --disable-gil build can pass the environment variable PYTHON_GIL=1 or the command-line flag -X gil=1 to reactivate a global lock if they encounter compatibility problems with legacy C ...",
+            "score": 0.69,
+            "raw_content": null
+          },
+          {
+            "title": "Running Python with the GIL Disabled - GitHub Pages",
+            "url": "https://py-free-threading.github.io/running-gil-disabled/",
+            "content": "To force Python to keep the GIL disabled even after importing a module that does not support running without it, use the PYTHON_GIL environment variable or the -X gil command line option:",
+            "score": 0.51,
+            "raw_content": null
+          },
+          {
+            "title": "Python support for free threading \u2014 Python 3.15.0 documentation",
+            "url": "https://docs.python.org/3/howto/free-threading-python.html",
+            "content": "Starting with the 3.13 release, CPython has support for a build of Python called free threading where the global interpreter lock(GIL) is disabled. Free-threaded execution allows for full utilizati...",
+            "score": 0.48,
+            "raw_content": null
+          }
+        ],
+        "response_time": 5.43,
+        "answer": "How to disable GIL (Global Interpreter Lock) in Python 3.13 - DEV Community Users running a --disable-gil build can pass the environment variable PYTHON_GIL=1 or the command-line flag -X gil=1 to reactivate a global lock if they encounter compatibility problems with legacy C ... (Sources: dev.to, salivity.github.io)",
+        "images": [],
+        "warnings": [
+          "searxng https://search.lumy.live: TimeoutError: The read operation timed out",
+          "crawl: could not fetch 1 of 2 pages (kept search snippets)"
+        ]
+      }
+    }
+  },
+  {
+    "benchmark": {
+      "name": "3. Security Forensics: CVE-2024-3094 Injected Files (Advanced Depth)",
+      "query": "CVE-2024-3094 xz backdoor injected test file names in tarball",
+      "search_depth": "advanced",
+      "include_answer": false,
+      "domains": {},
+      "ground_truth_keywords": [
+        "bad-3-corrupt_lzma2",
+        "good-large_compressed"
+      ]
+    },
+    "tavily": {
+      "success": true,
+      "latency": 0.27419114112854004,
+      "data": {
+        "query": "CVE-2024-3094 xz backdoor injected test file names in tarball",
+        "follow_up_questions": null,
+        "answer": null,
+        "images": [],
+        "results": [
+          {
+            "url": "https://safeguard.sh/resources/blog/xz-utils-backdoor-technical-breakdown",
+            "title": "XZ Utils Backdoor CVE-2024-3094: Technical Breakdown",
+            "content": "The payload was hidden in two compressed \"test files\" \u2014 `bad-3-corrupt_lzma2.xz` and `good-large_compressed.lzma` \u2014 that contained the real implant. During `./configure`, a modified `build-to-host.m4` macro invoked a hidden `.m4` script that pulled bytes from those test files, deobfuscated them with a chained sequence of `tr` and `head`, and injected the result into the build as an object file linked into liblzma. Crucially, the malicious logic was never in version-controlled source that you would see with `git log`. Anyone diffing the Git tree against upstream saw only innocuous test data. Only the tarball produced by `make dist` contained the wired-up `build-to-host.m4`. This is the textbook argument for reproducible builds from VCS, not from tarballs. [...] The backdoor was merged by an account named Jia Tan (JiaT75) who had contributed to xz-utils since late 2021 and became the de facto co-maintainer alongside Lasse Collin by 2023. The handle corresponded to a sockpuppet campaign: accounts like \"Jigar Kumar\" and \"Dennis Ens\" pressured Collin on the mailing list throughout 2022 to hand off more responsibility, citing burnout. Over 18 months JiaT75 landed legitimate fixes, became a Google OSS-Fuzz contact, and gained commit rights. The malicious payload arrived across a sequence of commits in February and March 2024, split between the Git repository and the release tarball so that neither view alone looked suspicious. The Git tree contained harmless-looking test fixtures; the tarball added a build-time script that stitched them together. [...] Safeguard flags xz-utils 5.6.0 and 5.6.1 as malicious at ingest and traces the transitive path from sshd to liblzma through libsystemd using reachability analysis, so you see not just that the package is present but that it reaches a network-facing daemon. Griffin AI correlates the anomalous maintainer change pattern \u2014 a newly trusted committer landing obfuscated binary test fixtures \u2014 against similar historical takeover attempts, surfacing review recommendations before a release ships. Every SBOM ingested includes provenance attestations, so tarball-only payloads like `build-to-host.m4` trigger a mismatch between the VCS and the distributed artifact. Policy gates block builds when any component matches the xz advisory or shows unresolved provenance, and TPRM assessments flag vendors",
+            "score": 0.8747745,
+            "raw_content": null,
+            "id": "db0c78-00"
+          },
+          {
+            "url": "https://nsfocusglobal.com/xz-utils-backdoor-vulnerability-cve-2024-3094-advisory",
+            "title": "XZ Utils Backdoor Vulnerability (CVE-2024-3094) Advisory - NSFOCUS",
+            "content": "NSFOCUS CERT recently detected that a backdoor vulnerability in XZ Utils (CVE-2024-3094) was disclosed from the security community, with a CVSS score of 10. Because the SSH underlying layer relies on liblzma, an attacker could exploit this vulnerability to bypass SSH authentication and gain unauthorized access to affected systems, allowing arbitrary code execution. After investigation, it is found that the tarball upstream software package of xz infects a backdoor program. The backdoor extracts the .o file from the disguised test file during the building process, and then uses the extracted file to modify specific functions in liblzma, resulting in the generation of a modified liblzma library. Any software linked to this library may use it to intercept and modify data interaction with",
+            "score": 0.8657814,
+            "raw_content": null,
+            "id": "aaef9d-01"
+          },
+          {
+            "url": "https://nsfocusglobal.com/xz-utils-supply-chain-backdoor-vulnerability-updated-advisory-cve-2024-3094",
+            "title": "XZ-Utils Supply Chain Backdoor Vulnerability Updated Advisory (CVE-2024-3094) - NSFOCUS",
+            "content": "Recently, NSFOCUS CERT detected that the security community disclosed a supply chain backdoor vulnerability in XZ-Utils (CVE-2024-3094), with a CVSS score of 10. Since the underlying layer of SSH relies on liblzma, when certain conditions are met, an attacker can use this vulnerability to bypass SSH authentication and gain unauthorized access on the affected system, thus executing any system command. After investigation, it is found that the tarball upstream software package of xz infects a backdoor program. The backdoor extracts the .o file from the disguised test file during the building process, and then uses the extracted file to modify specific functions in liblzma, resulting in the generation of a modified liblzma library. Any software linked to this library may use it to intercept",
+            "score": 0.86024034,
+            "raw_content": null,
+            "id": "1615fb-02"
+          },
+          {
+            "url": "https://www.penligent.ai/hackinglabs/xz-utils-cve-reality-check-cve-2024-3094-the-liblzma-backdoor-and-why-your-build-pipeline-was-the-real-target",
+            "title": "XZ Utils CVE Reality Check \u2014 CVE-2024-3094, the liblzma Backdoor, and Why Your Build Pipeline Was the Real Target",
+            "content": "## The one-paragraph truth of CVE-2024-3094\n\nCVE-2024-3094 refers to malicious code discovered in XZ Utils upstream release tarballs starting with 5.6.0, where obfuscated build logic extracted a prebuilt object from disguised test files and modified liblzma during compilation, resulting in a compromised library that could affect software linked against it. (NVD)\n\nCISA described it as a reported supply chain compromise affecting XZ Utils 5.6.0 and 5.6.1, and urged organizations to take immediate mitigation actions. (CISA)\n\nIf you want a mental model: this was less \u201cbuffer overflow\u201d and more \u201csomeone swapped your factory\u2019s calibration tool so every unit coming off the line contains a hidden defect that only shows up in the field.\u201d [...] NVD explicitly notes the tarballs included extra build instructions \u2014 including extra `.m4` files \u2014 that drove an obfuscated extraction/injection process during build. (NVD)\n\n### The injection concept \u2014 prebuilt objects hidden in \u201ctests\u201d become production code\n\nMultiple write-ups describe test assets being used as a delivery vehicle for the injected payload and scripts. CrowdStrike\u2019s analysis, for example, discusses obfuscated commands used in the build process and identifies test files involved in the backdoor chain. (CrowdStrike)\n\nLWN\u2019s technical breakdown became a widely referenced explanation of \u201chow it worked\u201d at a systems level, including the discovery story and mechanism-level discussion that helped the community converge on what was happening. (LWN.net) [...] The upstream maintainer of xz published a fact page emphasizing that the backdoor was in release tarballs and that tarballs created and signed by the malicious actor were distinct from safe ones. (tukaani.org)\n\nThat single detail is the headline for defenders: your review process might be staring at the wrong artifact.\n\n## How the compromise worked \u2014 the part most teams need to internalize\n\n### The core trick \u2014 your source repo can look fine while your release artifacts are poisoned\n\nOne of the defining properties of this incident was the artifact/repository mismatch: malicious build logic existed in the release tarballs in a way that would not necessarily appear in the same form inside the public source repository you might audit. (tukaani.org)",
+            "score": 0.84027237,
+            "raw_content": null,
+            "id": "84ca91-03"
+          },
+          {
+            "url": "https://www.blumira.com/blog/cve-2024-3094-xz-utils-backdoor",
+            "title": "CVE-2024-3094: xz-utils (liblzma) Backdoor",
+            "content": "Freund describes that one portion of the backdoor is in the distributed tarball for xz-utils versions 5.6.0 and 5.6.1. They point to a line of code for the xz-utils debian unstable branch that injects an obfuscated script to be executed at the end of xz-util configure. If the preconditions are met, the script modifies the liblzma makefile to insert the backdoor code.\n\nThe compromised files that contain most of the exploit are located at paths:\n\n`tests/files/bad-3-corrupt_lzma2.xz  \n tests/files/good-large_compressed.lzma` [...] > \"Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0. Through a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in the liblzma code. This results in a modified liblzma library that can be used by any software linked against this library, intercepting and modifying the data interaction with this library\"\n\nSource: NIST\n\n### How Bad is This? [...] `for xz_p in $(type -a xz | awk '{print $NF}' | uniq); do strings \"$xz_p\" | grep \"xz (XZ Utils)\" || echo \"No match found for $xz_p\"; done`\n\n## Technical Details\n\nOn Friday, March 29th 2024 Andres Freund sent an email to an open-source security (oss-security) mailing list to share with Open Source projects, distributors, researchers, and developers that they had found a backdoor in the liblzma library included in the xz-utils tarball used by their Debian sid systems. They discovered the backdoor after noticing SSH logins were using more CPU and generating valgrind errors. The email was also shared by Freund via Mastodon Social as well.\n\nMastodon post from Andres Freund",
+            "score": 0.82761955,
+            "raw_content": null,
+            "id": "6bb626-04"
+          }
+        ],
+        "response_time": 0.0,
+        "request_id": "8a7c9d6b-bed0-4b67-a3bb-5d1faad37cef"
+      }
+    },
+    "taviless": {
+      "success": true,
+      "latency": 2.180922746658325,
+      "data": {
+        "query": "CVE-2024-3094 xz backdoor injected test file names in tarball",
+        "results": [
+          {
+            "title": "Nvd-cve-2024-3094",
+            "url": "https://nvd.nist.gov/vuln/detail/cve-2024-3094",
+            "content": "Description Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0. Through a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in the liblzma code.",
+            "score": 0.72,
+            "raw_content": null
+          },
+          {
+            "title": "XZ Backdoor Labs (CVE-2024-3094) - GitHub",
+            "url": "https://github.com/stevehenderson/lab_xz_backdoor",
+            "content": "GitHub - stevehenderson/lab_xz_backdoor: Some labs looking at the xz backdoor vulnerability (CVE-2024-3094) \u00b7 GitHub\n\n\nSkip to content\n\n\nYou signed in with another tab or window. Reload to refresh your session.\nYou signed out in another tab or window. Reload to refresh your session.\nYou switched accounts on another tab or window. Reload to refresh your session.\n\nDismiss alert\n\n\n{{ message }}\n\n\nBranchesTags\n\n\nOpen more actions menu\n\n\n## Latest commit\n\n\n## History\n3 Commits\n\n\n3 Commits\n\n\n## Folders and files\n\n\nNameName\n\nLast commit message\n\n\nLast commit date\n\n\ncommon\n\n\ncommon\n\n\ndocs\n\n\ndocs\n\n\nlab1-inspect\n\n\nlab1-inspect\n\n\nlab2-detonate\n\n\nlab2-detonate\n\n\npcap\n\n\npcap\n\n\n.gitignore\n\n\n.gitignore\n\n\nCHANGELOG.md\n\n\nCHANGELOG.md\n\n\nLICENSE\n\n\nLICENSE\n\n\nMakefile\n\n\nMakefile\n\n\nREADME.md\n\n\nREADME.md\n\n\nSECURITY.md\n\n\nSECURITY.md\n\n\n## Repository files navigation\n\n\n# XZ Backdoor Labs (CVE-2024-3094)\n\n\nSafe, hands-on labs for understanding the xz-utils supply-chain backdoor \u2014\nbuilt for defenders, students, and blue-teamers.\n\n\nWarning\n\n\nThis project handles real, in-the-wild malware (the xz 5.6.0 / 5.6.1\nbackdoor). It is provided strictly for defensive education and authorized\nresearch. Everything runs in a disposable, isolated guest with no route to the\ninternet. Do not run these artifacts on a machine you care about, on a network\nyou don't control, or against any system you are not authorized to test.\nSee SECURITY.md.\n\n\n## What's inside\n\n\nLab\nWhat it does\nExecutes the payload?\n\n\nLab 1 \u2014 Inspect\nLaunch a throwaway sandbox, get the malicious tarball in offline, and see the disguise: the git-vs-tarball `build-to-host.m4` diff, the test-fixture payloads, the magic marker.\nNo \u2014 static inspection only\n\n\nLab 2 \u2014 Detonate\nBuild an isolated three-VM network ( `analyst` / `compromised` / `normal` , no Docker). From the analyst jumpbox, SSH to both hosts to compare latency and pcaps, then trigger the backdoored `sshd` on `compromised` with your own Ed448 key (via xzbot) for pre-auth root RCE \u2014 while `normal` stays immune.\nYes \u2014 isolated VMs, offline, your key\n\n\n## The backdoor in one paragraph\n\n\nA two-year social-engineering campaign handed a malicious maintainer release authority\nover xz-utils. The payload shipped only in the release tarball (not git), hidden in\ntest fixtures, and activated at build time on x86-64 glibc systems. At runtime it used a\nglibc IFUNC hook on `RSA_public_decrypt` (reachable via `sshd \u2192 libsystemd \u2192 liblzma` ) to give the key-holder pre-authentication RCE \u2014 a command hidden in an SSH\ncertificate's RSA modulus, ChaCha20-encrypted and Ed448-signed. It is not C2 and not\na magic login. Caught by Andres Freund on 29 Mar 2024 via a ~500 ms SSH slowdown, before\nit reached stable distros.\n\n\n## Quick start\n\n\n`make setup # install/preflight checks (Multipass or Docker, tcpdump, etc.)\nmake lab1 # inspection sandbox\nmake lab2 # build the isolated 3-VM detonation network, then: multipass shell analyst\nmake clean # tear everything down, purge VMs / pcaps / generated keys`\n\n\nPrerequisites and per-lab walkthroughs live in `docs/` .\n\n\n## Safety model (non-negotiable)\n\n\n- Disposable isolated guest for every step; nothing malicious runs on the host.\n\n- Lab 1 never builds or executes the payload.\n\n- Lab 2's backdoored `sshd` binds to loopback / internal bridge only and the lab\nrefuses to run if the guest can reach the internet.\n\n- Only self-generated Ed448 keys are ever used. The original attacker key is\ncryptographically unobtainable (Ed448, ~224-bit security) \u2014 this project never\npretends otherwise.\n\n- Downloaded tarballs are SHA-256 verified against published IOCs before use.\n\n\n## Credits & references\n\n\n- amlweems/xzbot \u2014 Ed448 key patch, trigger demo, honeypot\n\n- lockness-Ko/xz-vulnerable-honeypot\n\n- CISA alert \u2014 CVE-2024-3094\n\n- Andres Freund's oss-security disclosure\n\n- rya.nc \u2014 putting a payload in a valid RSA N\n\n\n## License\n\n\nMIT.\n\n\n## About\n\n\nSome labs looking at the xz backdoor vulnerability (CVE-2024-3094)\n\n\n### Resources\n\n\nReadme\n\n\nMIT license\n\n\n### Security policy\n\n\nSecurity policy\n\n\nActivity\n\n\n### Stars\n\n\n1 star\n\n\n### Watchers\n\n\n0 watching\n\n\n### Forks\n\n\n0 forks\n\n\nReport repository\n\n\n## Releases\n\n\n## Packages\n\n\n## Contributors\n\n\n## Languages\n\n\nYou can\u2019t perform that action at this time.",
+            "score": 0.68,
+            "raw_content": null
+          },
+          {
+            "title": "CVE Record: CVE-2024-3094",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2024-3094",
+            "content": "Description Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0. Through a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in the liblzma code.",
+            "score": 0.66,
+            "raw_content": null
+          },
+          {
+            "title": "XZ Utils Backdoor CVE-2024-3094 Explained - safeguard.sh",
+            "url": "https://safeguard.sh/resources/blog/the-xz-utils-backdoor-cve-2024-3094-explained",
+            "content": "XZ Utils Backdoor CVE-2024-3094 Explained\n\n\nSkip to content\n\n\nJ\n\n\nJames\n\n\nPrincipal Security Architect\n\n\nJuly 5, 20267 min read\n\n\nOn March 29, 2024, a Microsoft engineer investigating unusually slow SSH logins on a Debian sid box stumbled onto one of the most sophisticated software supply chain attacks ever documented: a deliberately planted backdoor inside xz-utils, the ubiquitous compression library that ships in nearly every Linux distribution. Tracked as CVE-2024-3094, the backdoor was inserted into liblzma (the shared library component of xz-utils) by a trusted co-maintainer over a period of roughly two to three years of patient social engineering. Had it gone undetected for even a few more weeks, it would have given a remote attacker holding a specific private key the ability to execute arbitrary code on affected systems by smuggling a payload through the SSH authentication path \u2014 no valid credentials required. This is the anatomy of that backdoor, what it touched, and what to do about it.\n\n\n## What Happened\n\n\nxz-utils is a general-purpose data compression utility relied on by package managers, init systems, and countless downstream tools across the Linux and Unix ecosystem. Its liblzma library is a build or runtime dependency of `systemd` , which in many distributions links to `libsystemd` , which in turn is loaded by `sshd` for notification socket support. That chain of dependencies \u2014 compression library to init system to SSH daemon \u2014 is exactly what made this backdoor so dangerous: it turned an obscure transitive dependency into a foothold on the single most security-critical network service on a Linux host.\n\n\nThe malicious code was not visible in the public xz Git repository. Instead, it was injected into the release tarballs distributed to downstream packagers, via a multi-stage obfuscation process hidden inside build scripts and disguised \"test\" binary files (including a file named `bad-3-corrupt_lzma2.xz` used ostensibly for testing corrupt-input handling). During the build, an M4 macro ( `build-to-host.m4` ) unpacked and decrypted staged payloads, disabled certain hardening features (such as landlock sandboxing and ifunc resolution), and spliced the backdoor into `liblzma.so` at compile time \u2014 but only when very specific conditions were met: x86-64 Linux, glibc, and an RPM or DEB packaging build. This conditional trigger logic was designed to evade casual review, sandboxed builds, and most static analysis.\n\n\nAt runtime, the planted code intercepted the `RSA_public_decrypt` function used by OpenSSH (via the sshd-systemd linkage) and checked incoming authentication data against an attacker-controlled Ed448 key. If the check matched, the payload allowed command execution before authentication completed \u2014 effectively a remote, pre-auth code execution backdoor on any host that had loaded the compromised library and exposed sshd built against it.\n\n\n## Affected Versions and Components\n\n\n- Directly affected: xz-utils / liblzma versions 5.6.0 and 5.6.1, released in February and March 2024.\n\n- Not affected: the long-standing 5.4.x LTS branch and earlier releases; the backdoor was only present in the two 5.6.x tarballs and was never merged into upstream Git history in usable form.\n\n- Distributions exposed to some degree: Fedora 41 (Rawhide) and Fedora 40 beta, Debian testing/unstable/experimental, openSUSE Tumbleweed and MicroOS, Kali Linux (briefly, for about a day), and Arch Linux container images. Notably, most stable production distributions \u2014 RHEL, Ubuntu LTS, Debian stable, Amazon Linux, and SUSE Linux Enterprise \u2014 were never affected, because they had not yet pulled xz 5.6.x into their stable package sets at the time of disclosure.\n\n- Downstream risk surface: any container image, golden AMI, CI runner, or developer workstation built from a rolling-release base image or a \"latest\" tag pulled between roughly February 24 and March 29, 2024, is a candidate for exposure and should be audited explicitly rather than assumed clean.\n\n\n## CVSS, EPSS, and KEV Context\n\n\nNVD assigned CVE-2024-3094 a CVSS v3.1 base score of 10.0, the maximum possible severity, reflecting the theoretical impact of unauthenticated remote code execution on a system service. In practice, EPSS (Exploit Prediction Scoring System) values for this CVE have stayed comparatively modest relative to that ceiling, because EPSS models observed and predicted exploitation activity in the wild \u2014 and this backdoor was caught during its pre-deployment window, before it reached any stable, widely-run production distribution, and no confirmed in-the-wild exploitation has been publicly attributed to it. That gap between a maximum CVSS score and a comparatively muted EPSS signal is a useful reminder that severity and exploitation likelihood are different questions, and that CISA's Known Exploited Vulnerabilities (KEV) catalog \u2014 which tracks confirmed active exploitation rather than theoretical impact \u2014 has not listed CVE-2024-3094, precisely because the discovery preempted real-world abuse. Teams should not read the KEV omission as \"low priority,\" however; the absence reflects lucky timing and a security researcher's diligence, not lack of severity.\n\n\n## Timeline\n\n\n- ~2021\u20132022: An account using the name \"Jia Tan\" (handle `JiaT75` ) begins contributing patches to the xz-utils project, building credibility over roughly two years.\n\n- 2022\u20132023: Coordinated pressure from sockpuppet accounts pushes original maintainer Lasse Collin to add a co-maintainer, citing burnout and slow response times. Jia Tan is granted commit access and eventually release authority.\n\n- February 2024: Versions 5.6.0 and 5.6.1 are released, containing the obfuscated build-time backdoor injection hidden in test fixtures and `build-to-host.m4` .\n\n- March 28, 2024: Andres Freund, a PostgreSQL contributor and Microsoft engineer, notices ~500ms of unexplained latency and elevated CPU usage in SSH logins while benchmarking Postgres on Debian sid, and begins investigating.\n\n- March 29, 2024: Freund publicly discloses the backdoor to the oss-security mailing list; CVE-2024-3094 is assigned within hours; distributions begin emergency reversion.\n\n- March 29\u201330, 2024: Fedora, Debian, openSUSE, Kali, and Arch push advisories and revert affected packages to xz 5.4.x; GitHub disables the xz-utils repository pending investigation; Jia Tan's credentials and signing keys are revoked and distrusted.\n\n- April 2024 onward: Broader industry post-mortems, renewed scrutiny of tarball-vs-Git provenance mismatches, and increased investment in reproducible builds and maintainer-succession safeguards across open source infrastructure.\n\n\n## Remediation Steps\n\n\n- Inventory first. Identify every system, container image, and build artifact with xz-utils/liblzma 5.6.0 or 5.6.1 installed. Query with `xz --version` , `dpkg -l xz-utils` , or `rpm -q xz` , and extend the check to container base images, CI cache layers, and AMIs baked between late February and March 29, 2024.\n\n- Downgrade or patch. Follow your distribution's advisory to revert to xz 5.4.x LTS or a patched 5.6.2+/later release that removes the malicious build logic. Do not simply pin the version without confirming the binary was rebuilt from clean source.\n\n- Rebuild from source, not tarballs. Where feasible, build xz-utils from the official Git repository rather than distributed release tarballs, since the malicious payload lived only in the tarball packaging step, not in Git history.\n\n- Restart dependent services. Because the exploit path runs through `systemd` and `sshd` , restart or redeploy affected hosts after remediation rather than relying on a library swap alone \u2014 stale loaded libraries in long-running processes won't pick up the fix.\n\n- Audit for exposure indicators. Review SSH authentication logs for anomalous pre-auth behavior or unexpected CPU/latency spikes during the exposure window, especially on rolling-release or bleeding-edge hosts that were internet-facing.\n\n- Revoke trust in compromised signing material. Treat any GPG keys associated with the \"Jia Tan\" identity as untrusted, and re-verify package signing chains for xz-utils going forward.\n\n- Extend scrutiny beyond xz. Use this incident as the forcing function to inventory other critical transitive dependencies (compression libraries, init-system plugins, PAM modules) with similarly deep reach into privileged services, since the same trust-and-patience attack pattern can be replayed against other under-resourced maintainers.\n\n\n## How Safeguard Helps\n\n\nIncidents like CVE-2024-3094 expose the limits of version-matching alone: knowing you have \"xz 5.6.1 somewhere\" isn't the same as knowing it's linked into a running sshd process that's internet-reachable. Safeguard's reachability analysis traces liblzma's actual call paths through your services so you can immediately separate \"technically present\" from \"actually exploitable,\" cutting through alert fatigue during exactly this kind of fleet-wide scramble. Griffin AI, Safeguard's autonomous triage engine, correlates dependency graphs, SBOM data, and runtime behavior to flag anomalous maintainer-introduced changes and package provenance mismatches before they reach production \u2014 the exact failure mode this backdoor exploited. Continuous SBOM generation and ingest give you a live, queryable inventory across containers, AMIs, and build artifacts, so answering \"where is xz 5.6.x running\" takes seconds, not a fire drill. And when a fix is available, Safeguard's auto-fix PRs open the version bump or config change directly against affected repositories, shrinking the gap between disclosure and remediation from days to hours.\n\n\nxz-utils-backdoorcve-2024-3094software-supply-chain-securityopen-source-securitysbomvulnerability-remediation\n\n\nBack to all articles\n\n\n## More on #xz-utils-backdoor\nView all\n\n\nIncident Analysis\n\n\n### The XZ Utils backdoor: anatomy of a supply chain attack\n\n\n7 min read\n\n\nOpen Source Security\n\n\n### Security Training Gaps Among Solo Maintainers of High-Imp...\n\n\n7 min read\n\n\nOpen Source Security\n\n\n### The XZ Utils Incident as a Case Study in Maintainer Trust...\n\n\n7 min read\n\n\nVulnerability Analysis\n\n\n### The XZ Utils Backdoor Explained\n\n\n8 min read\n\n\n## Related articles in Software Supply Chain Security\n\n\nSoftware Supply Chain Security\n\n\n### Auto-Merging Updates Fast and Reviewing What You Take Are in Conflict\n\n\nPatch quickly, because exploitation begins within days. Review what you take from third parties, because a malicious version of a package you trust is the most effective supply chain attack. Auto-merge picks one and abandons the other.\n\n\nSeptember 18, 2026Read\n\n\nSoftware Supply Chain Security\n\n\n### A Lockfile Is Not a Control, the Install Command Is\n\n\nYou pinned every dependency with an integrity hash and committed the file. None of that means the artifact you shipped contains those versions, because several install commands are allowed to resolve differently and rewrite the lockfile.\n\n\nSeptember 18, 2026Read\n\n\nSoftware Supply Chain Security\n\n\n### A Tag Is Not a Version\n\n\nYou deployed myapp:1.4.2 in March and myapp:1.4.2 in September. Those are not necessarily the same image. Almost every tag you rely on is a mutable pointer that someone else can move without telling you.\n\n\nSeptember 17, 2026Read\n\n\n## Never miss an update\n\n\nWeekly insights on software supply chain security, delivered to your inbox.\n\n\n## Self-healing security runs on Safeguard.\n\n\nYour first fix PR is minutes away.\n\n\nBook a demoGet started\n\n\nNo sales call required, even your agent can complete the purchase over MCP.",
+            "score": 0.56,
+            "raw_content": null
+          },
+          {
+            "title": "XZ Utils backdoor - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/XZ_Utils_backdoor",
+            "content": "XZ Utils backdoor - Wikipedia\n\n\nJump to content\n\n\nFrom Wikipedia, the free encyclopedia\n\n\nPatched software backdoor\n\n\nXZ Utils backdoor\n\n\nPrevious XZ logo contributed by Jia Tan\n\n\nCVE identifierCVE-2024-3094\n\n\nCVSS scoreBase: 10.0 CRITICAL, CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H\n\n\nDate discoveredOn or before 27\u00a0March 2024; 2 years ago\u00a0(2024-03-27)[1][2]\n\n\nDate of public disclosure29\u00a0March 2024;\n2 years ago\u00a0(2024-03-29)\n\n\nDate patched29\u00a0March 2024;\n2 years ago\u00a0(2024-03-29)[a][3]\n\n\nDiscovererAndres Freund\n\n\nAffected softwarexz / liblzma library\n\n\nWebsitetukaani.org/xz-backdoor/\n\n\nOn 29 March 2024, a malicious backdoor was discovered in the compression software XZ Utils. The backdoor gives an attacker who possesses a specific private key[4] the ability to remotely execute code on an affected system through OpenSSH, a set of networking utilities.[5] The backdoor was discovered by software developer Andres Freund.[6]\n\n\nIt was later discovered that the exploit was deliberately included into the software in February 2024 by a user going by the name of \"Jia Tan\", affecting both version 5.6.0 and 5.6.1.[7] The issue was given the CVE exploit number CVE-2024-3094 and was assigned a CVSS score of 10.0, the highest possible score, indicating that the exploit was extremely severe.[8]\n\n\nWhile XZ Utils is commonly present in most Linux distributions, at the time of discovery the affected versions had not yet been widely deployed to production systems, but were present in development versions of major distributions, resulting in distribution maintainers rebuilding their packages to mitigate the exploit.[9][10][11] A patch for this backdoor was released on 29 May 2024, with version number 5.6.2.[12] The exploit was noted for its high level of obfuscation,[13] being the result of a campaign lasting years.[14]\n\n\n## Background\n[edit]\n\n\nMicrosoft employee and developer Andres Freund reported the backdoor after investigating a performance regression in a development version of Debian, a Linux distribution.[15] Freund noticed that SSH connections were generating an unexpectedly high amount of CPU usage as well as causing errors in Valgrind, a memory debugging tool.[7] He reported his finding to Debian[1] and later to the Openwall Project,[16] which brought it to the attention of various software vendors.[7] Once the compromised version is incorporated into the operating system, it alters the behavior of OpenSSH's SSH server daemon by abusing systemd,[b] allowing an attacker with a specific Ed448 private key[4] to gain administrator access.[5][7] According to an analysis by Red Hat, the backdoor can allow a malicious actor to gain full access to a system remotely.[17]\n\n\nThe attacker made efforts to obfuscate the code,[13] as the exploit delivery mechanism consists of multiple stages that act together.[5] A subsequent investigation found that the campaign to insert the backdoor into the XZ Utils project was a culmination of over two years of effort, starting in 2021, by a user going by the name \"Jia Tan\". They used sock puppetry in a pressure campaign against the original maintainer of XZ Utils, eventually being given maintainer permissions on the project. This allowed them to introduce the exploit into version 5.6.0; due to it not being discovered at the time, it also made its way into version 5.6.1.[14] Some of the suspected sock puppets include accounts with usernames like \"Jigar Kumar\", \"krygorin4545\", and \"misoeater91\". It is suspected that the names are pseudonyms chosen by the participants of the campaign. None have any sort of visible public presence in software development beyond the years of the campaign.[18][19]\n\n\nThe backdoor was notable for its level of sophistication and the perpetrator's high level of operational security for a long period of time while working to attain a position of trust. American security researcher Dave Aitel has suggested that it fits the pattern attributable to APT29, an advanced persistent threat actor believed to be working on behalf of the Russian Foreign Intelligence Service (SVR).[4] Journalist Thomas Claburn suggested that it could be any state actor or a non-state actor with considerable resources.[20]\n\n\n## Mechanism\n[edit]\n\n\nThe malicious code is known to be in versions 5.6.0 and 5.6.1 of the XZ Utils software package. The malicious mechanism consists of two compressed files that contain the malicious binary code. These files are available in the Git repository, but remain dormant unless extracted and injected into the program.[21] The code then replaces an existing function in OpenSSH with a malicious version. Under normal conditions, OpenSSH does not load code related to XZ Utils, as the programs are not related. However, a patch used by several Linux distributions causes OpenSSH to interface with XZ Utils by using Systemd.[21] A modified version of `build-to-host.m4` , a script used in the program's build process, was included in the release uploaded on GitHub.[22] The modified script extracts another, resulting in code being injected into the program. This modified file was not present in the git repository; it was only available from tar files released by \"Jia Tan\" separately from Git.[21] The script appears to perform the injection only when the system is being built on an x86-64 Linux system that uses glibc and GCC and is being built via dpkg or rpm.[21]\n\n\n## Response\n[edit]\n\n\n### Remediation\n[edit]\n\n\nThe US federal Cybersecurity and Infrastructure Security Agency issued a security advisory recommending that affected devices should roll back to a previous uncompromised version.[23] Linux software vendors, including Red Hat, SUSE, and Debian, reverted the affected packages to older versions.[17][10][24] GitHub temporarily disabled the mirrors for the project's repository.[12]\n\n\nCanonical postponed the beta release of Ubuntu 24.04 LTS and its flavours by a week and opted for a complete binary rebuild of all the distribution's packages.[11] Although the stable version of Ubuntu was not affected, upstream versions were. This precautionary measure was taken because Canonical could not guarantee by the original release deadline that the discovered backdoor did not affect additional packages during compilation.[25]\n\n\nAfter regaining access to GitHub and removing all forwarding to \"Jia Tan\", maintainer Lasse Collin released version 5.6.2 on 29 May 2024, patching the backdoor.[12] Collin also published a writeup detailing the changes in code over time that allowed the exploit to be added to the software.[7][26]\n\n\nIn August 2025, researchers at security company Binarly found several Debian Docker images on Docker Hub that still have the XZ Utils backdoor.[27][28][29] The Debian development team declined to remove the affected images, stating that they were left as historical artifacts, as they are development builds that should not be used on real systems in place of newer, clean container versions.[28][27]\n\n\n### Broader response\n[edit]\n\n\nFollowing the incident, the Open Source Security Foundation and OpenJS Foundation issued a joint warning that the XZ Utils backdoor \"may not be an isolated incident\", reporting that similar social engineering attempts had targeted JavaScript projects hosted by OpenJS.[30] The foundations warned maintainers to watch for \"friendly yet aggressive and persistent pursuit\" by unknown community members seeking maintainer status.[31]\n\n\nComputer scientist Alex Stamos opined that \"this could have been the most widespread and effective backdoor ever planted in any software product\", noting that had the backdoor remained undetected, it would have \"given its creators a master key to any of the hundreds of millions of computers around the world that run SSH\".[32] In addition, the incident also started a discussion regarding the viability of having critical pieces of cyberinfrastructure depend on unpaid volunteers.[14]\n\n\n## Notes\n[edit]\n\n\n- \u2191 The vulnerability was effectively patched within hours of disclosure by reverting to a previous version known to be safe.\n\n- \u2191 systemd is an init system, meaning it is responsible for starting a Linux device and some administrative tasks.\n\n\n## References\n[edit]\n\n\n- 1 2 Freire, Rodrigo (30 April 2024). \"Understanding Red Hat's response to the XZ security incident\". Red Hat. Retrieved 14 August 2025.\n\n- \u2191 Oxide and Friends 4/8/2024 -- Discovering the XZ Backdoor with Andres Freund (video). Oxide Computer Company. 14 August 2025 \u2013 via YouTube.\n\n- \u2191 Collin, Lasse (9 April 2024). \"Remove the backdoor found in 5.6.0 and 5.6.1 (CVE-2024-3094)\". GitHub. Retrieved 19 June 2024.\n\n- 1 2 3 Greenberg, Andy (3 April 2024). \"The Mystery of 'Jia Tan,' the XZ Backdoor Mastermind\". Wired. Archived from the original on 3 April 2024. Retrieved 3 April 2024.\n\n- 1 2 3 Claburn, Thomas (29 March 2024). \"Malicious backdoor spotted in Linux compression library xz\". The Register. Archived from the original on 1 April 2024. Retrieved 14 August 2025.\n\n- \u2191 Corbet, Jonathan. \"A backdoor in xz\". LWN.net. Archived from the original on 1 April 2024. Retrieved 2 April 2024.\n\n- 1 2 3 4 5 Goodin, Dan (1 April 2024). \"What we know about the xz Utils backdoor that almost infected the world\". Ars Technica. Archived from the original on 1 April 2024. Retrieved 1 April 2024.\n\n- \u2191 Gatlan, Sergiu (29 March 2024). \"Red Hat warns of backdoor in XZ tools used by most Linux distros\". Bleeping Computer. Archived from the original on 29 March 2024. Retrieved 29 March 2024.\n\n- \u2191 \"CVE-2024-3094\". National Vulnerability Database. NIST. Archived from the original on 2 April 2024. Retrieved 2 April 2024.\n\n- 1 2 Meissner, Marcus (27 December 2024). \"SUSE addresses supply chain attack against xz compression library\". SUSE Communities. SUSE. Archived from the original on 29 March 2024. Retrieved 14 August 2025.\n\n- 1 2 Zemczak, \u0141ukasz (3 April 2024). \"Noble Numbat Beta delayed (xz/liblzma security update)\". Ubuntu Community Hub. Archived from the original on 10 April 2024. Retrieved 10 April 2024.\n\n- 1 2 3 Collin, Lasse. \"XZ Utils backdoor\". Tukaani. Retrieved 16 May 2026.\n\n- 1 2 O'Donnell-Welch, Lindsey (29 March 2024). \"Red Hat, CISA Warn of XZ Utils Backdoor\". Decipher. Archived from the original on 29 March 2024. Retrieved 29 March 2024.\n\n- 1 2 3 Khalid, Amrita (2 April 2024). \"How one volunteer stopped a backdoor from exposing Linux systems worldwide\". The Verge. Retrieved 14 May 2026.\n\n- \u2191 Zorz, Zeljka (29 March 2024). \"Beware! Backdoor found in XZ utilities used by many Linux distros (CVE-2024-3094)\". Help Net Security. Archived from the original on 29 March 2024. Retrieved 29 March 2024.\n\n- \u2191 Freund, Andres (29 March 2024). \"oss-security - backdoor in upstream xz/liblzma leading to ssh server compromise\". Openwall Project. Archived from the original on 1 April 2024. Retrieved 14 August 2025.\n\n- 1 2 \"Urgent security alert for Fedora 41 and Fedora Rawhide users\". Red Hat. 29 March 2024. Archived from the original on 29 March 2024. Retrieved 14 August 2025.\n\n- \u2191 \"Timeline summary of the backdoor attack on XZ Utils\". gigazine.net. 3 April 2024. Archived from the original on 10 April 2024. Retrieved 14 August 2025.\n\n- \u2191 Cox, Russ (1 April 2024). \"Timeline of the xz open source attack\". research.swtch.com. Retrieved 14 August 2025.\n\n- \u2191 Claburn, Thomas. \"Malicious xz backdoor reveals fragility of open source\". The Register. Archived from the original on 8 April 2024. Retrieved 8 April 2024.\n\n- 1 2 3 4 James, Sam. \"xz-utils backdoor situation (CVE-2024-3094)\". GitHub. Archived from the original on 2 April 2024. Retrieved 2 April 2024.\n\n- \u2191 \"XZ Utils Backdoor \u2014 Everything You Need to Know, and What You Can Do\". Akamai. 1 April 2024. Archived from the original on 12 April 2026. Retrieved 1 June 2026.\n\n- \u2191 \"Reported Supply Chain Compromise Affecting XZ Utils Data Compression Library, CVE-2024-3094\". Cybersecurity and Infrastructure Security Agency. 29 March 2024. Archived from the original on 29 March 2024. Retrieved 29 March 2024.\n\n- \u2191 Salvatore, Bonaccorso (29 March 2024). \"[SECURITY] [DSA 5649-1] xz-utils security update\". debian-security-announce (Mailing list). Archived from the original on 29 March 2024. Retrieved 29 March 2024.\n\n- \u2191 Sneddon, Joey (3 April 2024). \"Ubuntu 24.04 Beta Delayed Due to Security Issue\". OMG! Ubuntu. Archived from the original on 8 April 2024. Retrieved 10 April 2024.\n\n- \u2191 Collin, Lasse. \"XZ Utils review notes\". Tukaani. Retrieved 16 May 2026.\n\n- 1 2 Rudra, Sourav (14 August 2025). \"Security Researchers Find XZ Utils Backdoored Debian Images on Docker Hub\". news.itsfoss.com. Retrieved 14 August 2025.\n\n- 1 2 Haruyama, Takahiro (6 August 2025). \"Docker Hub Debian image contains CVE-2024-3094 backdoor\". GitHub. Retrieved 14 August 2025.\n\n- \u2191 \"Persistent Risk: XZ Utils Backdoor Still Lurking in Docker Images\". binarly.io. 12 August 2025. Retrieved 14 August 2025.\n\n- \u2191 Arasaratnam, Omkhar; Bender Ginn, Robin (15 April 2024). \"Open Source Security (OpenSSF) and OpenJS Foundations Issue Alert for Social Engineering Takeovers of Open Source Projects\". Open Source Security Foundation. Retrieved 1 January 2026.\n\n- \u2191 Kovacs, Eduard (15 April 2024). \"Researchers stop 'credible takeover attempt' similar to XZ Utils backdoor incident\". The Record. Retrieved 1 January 2026.\n\n- \u2191 Roose, Kevin (3 April 2024). \"Did One Guy Just Stop a Huge Cyberattack?\". The New York Times. Archived from the original on 4 April 2024. Retrieved 4 April 2024.\n\n\n## External links\n[edit]\n\n\n- XZ Utils website\n\n\nPortal:\n- Internet\n\n\n- v\n- t\n- e\n\n\nHacking in the 2020s\n\n\n\u2190\u00a02010s\n\n\n- Timeline of security hacking incidents\n\n- Timeline of computer viruses and worms\n\n\nMajor incidents\n\n\n2020\n\n\n- BlueLeaks\n\n- Twitter account hijacking\n\n- European Medicines Agency data breach\n\n- Nintendo data leak\n\n- United States federal government data breach\n\n- EasyJet data breach\n\n- Vastaamo data breach\n\n- Windows XP Service Pack 1 and Server 2003 RTM source code leaks\n\n\n2021\n\n\n- Microsoft Exchange Server breach\n\n- Ivanti Pulse Connect Secure data breach\n\n- Colonial Pipeline ransomware attack\n\n- Health Service Executive ransomware attack\n\n- Waikato District Health Board ransomware attack\n\n- JBS S.A. ransomware attack\n\n- Kaseya VSA ransomware attack\n\n- Transnet ransomware attack\n\n- Epik data breach\n\n- FBI email hack\n\n- National Rifle Association ransomware attack\n\n- Banco de Oro hack\n\n- Iranian fuel cyberattack\n\n\n2022\n\n\n- Ukraine cyberattacks\n\n- Red Cross data breach\n\n- Anonymous and the Russian invasion of Ukraine\n\n- Viasat hack\n\n- DDoS attacks on Romania\n\n- Costa Rican ransomware attack\n\n- LastPass vault theft\n\n- Shanghai police database leak\n\n- Grand Theft Auto VI content leak\n\n- Optus data breach\n\n\n2023\n\n\n- Munster Technological University ransomware attack\n\n- Capita data breach\n\n- Evide data breach\n\n- MOVEit data breach\n\n- Insomniac Games data breach\n\n- Operation Triangulation cyberattack\n\n- British Library cyberattack\n\n\n2024\n\n\n- XZ Utils backdoor\n\n- Kadokawa and Niconico\n\n- Change Healthcare ransomware attack\n\n- Ukrainian cyberattacks against Russia\n\n- 2024 WazirX hack\n\n- Trump campaign hack\n\n- Fur Affinity domain hijacking\n\n- IRLeaks attack on Iranian banks\n\n- Internet Archive data breach\n\n- i-Soon leak\n\n- 2024 global telecommunications hack\n\n- 2024 National Public Data breach\n\n\n2025\n\n\n- Cyberattacks on Bank Sepah\n\n- 2025 Paraguay ransomware attack\n\n- 4chan hacking and data breach\n\n- 2025 St. Paul cyberattack\n\n- Jaguar Land Rover cyberattack\n\n- Collins Aerospace cyberattack\n\n- 2025 cyberattack on Polish power grid\n\n- DIRIN Leaks\n\n\n2026\n\n\n- Aura (security) data breach\n\n- ManageMyHealth data breach\n\n- Neighbourly data breach\n\n- Cyberwarfare during the 2026 Iran war\n\n- Canvas data breach\n\n- Cyberattacks by rogue OpenAI agents\n\n- Hugging Face\n\n- Medicare\n\n- 2026 Minnesota water system cyberattack\n\n- Meccha Chameleon malware incident\n\n- Grand Theft Auto VI content leak\n\n- 2026 ANCPI hack\n\n- French supermarket refrigerator hack\n\n\nHacking groups\n\n\n- Anonymous\n\n- associated events\n\n- Anonymous Sudan\n\n- Berserk Bear\n\n- BlackCat\n\n- Clop\n\n- Cozy Bear\n\n- DarkMatter\n\n- DarkSide\n\n- Dark Storm Team\n\n- Deface Peru\n\n- Dridex\n\n- Ghostwriter\n\n- GnosticPlayers\n\n- Guacamaya\n\n- Hafnium\n\n- Indian Cyber Force\n\n- IT Army of Ukraine\n\n- Killnet\n\n- Lapsus$\n\n- LightBasin\n\n- LockBit\n\n- OceanLotus\n\n- PampaLeaks\n\n- REvil\n\n- Rhysida\n\n- Sandworm\n\n- Sakura Samurai\n\n- ShinyHunters\n\n- SiegedSec\n\n- Vice Society\n\n- Wizard Spider\n\n\nAI organizations whose AIs\ncommitted autonomous hacks\n\n\n- Anthropic\n\n- Google DeepMind\n\n- Google AI\n\n- Meta AI\n\n- OpenAI\n\n\nIndividual hackers\n\n\n- Graham Ivan Clark\n\n- maia arson crimew\n\n- IntelBroker\n\n- Kirtaner\n\n\nMajor vulnerabilities\npublicly disclosed\n\n\n- SMBGhost (2020)\n\n- Thunderspy (2020)\n\n- PrintNightmare (2021)\n\n- FORCEDENTRY (2021)\n\n- Log4Shell (2021)\n\n- Account pre-hijacking (2022)\n\n- Retbleed (2022)\n\n- Downfall (2023)\n\n- LogoFAIL (2023)\n\n- Reptar (2023)\n\n- Terrapin (2023)\n\n- GoFetch (2024)\n\n- Sinkclose (2024)\n\n- Copy Fail (2026)\n\n- PHP2Shell (2026)\n\n\nMalware\n\n\n- Adrozek\n\n- CovidLock\n\n- Drovorub\n\n- Predator\n\n- BlackLotus\n\n- Cyclops Blink\n\n- Pipedream\n\n- Akira\n\n- Gayfemboy\n\n- BootKitty\n\n\nTechniques\n\n\n- ClickFix\n\n\nRetrieved from \"https://en.wikipedia.org/w/index.php?title=XZ_Utils_backdoor&oldid=1373296486\"\n\n\nCategories:\n- 2024 in computing\n- March 2024\n- 2020s in hacking\n- Computer security exploits\n- Internet security\n- Kleptography\n- Social engineering (security)\n- Trojan horses\n\n\nHidden categories:\n- Articles with short description\n- Short description is different from Wikidata\n- Good articles\n- Use dmy dates from December 2025\n- Use Australian English from March 2024\n- All Wikipedia articles written in Australian English\n\n\nXZ Utils backdoor\n\n\nAdd topic",
+            "score": 0.52,
+            "raw_content": null
+          }
+        ],
+        "response_time": 2.18,
+        "answer": null,
+        "images": []
+      }
+    }
+  },
+  {
+    "benchmark": {
+      "name": "4. Strict Domain Filtering (python.org whitelisted, docs.python.org blacklisted)",
+      "query": "asyncio task group exception handling",
+      "search_depth": "basic",
+      "include_answer": false,
+      "domains": {
+        "include_domains": [
+          "python.org"
+        ],
+        "exclude_domains": [
+          "docs.python.org"
+        ]
+      },
+      "ground_truth_keywords": [
+        "python.org"
+      ]
+    },
+    "tavily": {
+      "success": true,
+      "latency": 0.27529120445251465,
+      "data": {
+        "query": "asyncio task group exception handling",
+        "follow_up_questions": null,
+        "answer": null,
+        "images": [],
+        "results": [
+          {
+            "url": "https://bugs.python.org/issue46843",
+            "title": "Issue 46843: PersistentTaskGroup API - Python tracker",
+            "content": "group, while we need an explicit \"fallback\" exception handler for those (just like \"return_exceptions=True\" in asyncio.gather). The tasks belong to the task group but their references should not be kept forever to prevent memory leak (I'd suggest using weakref.WeakSet). When terminating the task group itself, the ongoing tasks should be cancelled. The cancellation process upon termination may happend in two phases: cancel request with initial timeout + additional limited waiting of [...] | ``` I have updated the PersistentTaskGroup implementation referring asyncio.TaskGroup and added more detailed test cases, which works with the latest Python 3.11 GitHub checkout.  Please have a look at the class docstring. There are two different usage: async context manager vs. attributes of long-lived objects. One of the point is to \"revive\" asyncio.gather() with return_exceptions=True but let it handle/report exceptions immediately with customizable exception handler. Currently two-phase [...] loops to group tasks\". PersistentTaskGroup actually shares many characteristics with the event loop while itself is not an event loop. So I came up with WeakSet with task decorators to handle exceptions by my own, and this is the current rudimentary implementation of PersistentTaskGroup in aiotools. And I discovered from the additional search results that the same pattern ---managing sporadic tasks using WeakSet and writing a proper cancellation loop of them---appear quite commonly in many",
+            "score": 0.83452857,
+            "raw_content": null,
+            "id": "91e0ce-00"
+          },
+          {
+            "url": "https://discuss.python.org/t/pain-point-in-asyncio-potentially-failing-tasks/106506",
+            "title": "Pain point in asyncio: Potentially-failing tasks - Async-SIG - Discussions on Python.org",
+            "content": "With TaskGroups the default behavior of the system is to blow up. It\u2019s a sane thing to do for unhandled errors. People who want another behavior can handle their exceptions. There can also be some exception handling around some top-level task group, just like there often are some top-level exception handling in thread/process for cases where it would otherwise die.\n\nPowered by Discourse, best viewed with JavaScript enabled [...] | File \"/home/tin/.local/share/uv/python/cpython-3.14.0-linux-x86_64-gnu/lib/python3.14/asyncio/taskgroups.py\", line 72, in __aexit__\n| return await self._aexit(et, exc)\n| ^^^^^^^^^^^^^^^^^^^^^^^^^^\n| File \"/home/tin/.local/share/uv/python/cpython-3.14.0-linux-x86_64-gnu/lib/python3.14/asyncio/taskgroups.py\", line 174, in _aexit\n| raise BaseExceptionGroup(\n| ...<2 lines>...\n| ) from None\n| ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)\n+-+---------------- 1 ---------------- [...] In each case (other than `main_sync()`), it should spawn a task, but main runs for longer. Think like a long-running GUI app or server, and it triggers some kind of asynchronous operation. What happens when that task fails? In most cases, the exception shows up just fine. But for asyncio, that requires a blop of extra handling, for two reasons: firstly, as noted in the docs for create\\_task, tasks have to be retained; and without some kind of \u201cdone\u201d trigger that checks for the exception, that",
+            "score": 0.8194462,
+            "raw_content": null,
+            "id": "a7b2db-01"
+          },
+          {
+            "url": "https://discuss.python.org/t/asyncio-tasks-and-exception-handling-recommended-idioms/23806",
+            "title": "Asyncio, tasks, and exception handling - recommended idioms? - Async-SIG - Discussions on Python.org",
+            "content": "`shutdown()`\n`asyncio.as_completed()`\n`asyncio.gather()`\n`return_exceptions=True`\n`asyncio.TaskGroup`\n`task.result()`\n`aiotools.PersistentTaskGroup`\n`task.result()`\n`asyncio.Supervisor`\n`task.result()`\n`aiotools.as_completed_safe()`\n`PersistentTaskGroup`\n`aiotools.as_completed_safe()`\n`Supervisor` [...] `TaskGroup`\n\nI\u2019m going to propose another API which works like `asyncio.gather(..., return_exceptions=True)` with a safety guarantee and which can add tasks at any time during its lifetime. Currently it\u2019s being worked here: Asyncio supervisor by DontPanicO \u00b7 Pull Request #31 \u00b7 achimnol/cpython \u00b7 GitHub\n\n`asyncio.gather(..., return_exceptions=True)`\n\nTaken from the comment: [...] In `asyncio` you can set an exception handler with `loop.set_exception_handler` Event Loop \u2014 Python 3.12.1 documentation.\n\n`asyncio`\n`loop.set_exception_handler`",
+            "score": 0.7935067,
+            "raw_content": null,
+            "id": "e7ce49-02"
+          },
+          {
+            "url": "https://discuss.python.org/t/managing-unhandled-exceptions-from-asyncio/73136",
+            "title": "Managing unhandled exceptions from asyncio - Async-SIG - Discussions on Python.org",
+            "content": "# Managing unhandled exceptions from asyncio\n\nI think that asyncio should provide an asyncio exception\\_handler that raises unhandled asyncio exceptions out of run\\_forever in a BaseExceptionGroup (and enable it by default in some future release, deprecating and removing loop.set\\_exception\\_handler) [...] Task groups have their own issues, and aren\u2019t appropriate for use in the same places. Libraries can\u2019t use task groups without forcing the use of context managers where they otherwise aren\u2019t needed or having application code pass in a task group.\n\nEither way, by suggesting this become the default behavior, you\u2019re suggesting breaking existing working code and forcing people to change how it is written for an opinionated view that this is better. [...] There may need to be some tweaks in run\\_until\\_complete that catches this exception, cancels the root task, and resumes run\\_forever until the task has finished, merging any unhandled exception ExceptionGroups\n\nThis is the default behaviour of trio, and the anyio pytest plugin provides this functionality - failing any test with an exception group if there\u2019s any unhandled exceptions.",
+            "score": 0.78493005,
+            "raw_content": null,
+            "id": "213ebd-03"
+          },
+          {
+            "url": "https://discuss.python.org/t/asyncio-how-to-merge-two-streams/106616",
+            "title": "Asyncio: How to merge two streams - Async-SIG - Discussions on Python.org",
+            "content": "async with asyncio.TaskGroup() as tg:\nstdout_task = tg.create_task(\nread_stream(proc.stdout, \"stdout\", queue)\n)\nstderr_task = tg.create_task(\nread_stream(proc.stderr, \"stderr\", queue)\n)\nexcept ExceptionGroup:\n# do whatever error handling is desired\n# or just omit the except\n...\nfinally:\n# Use queue.shutdown instead of (None, None) sentinel\nqueue.shutdown()\nwatcher_task = asyncio.create_task(watcher())\ntry:\nwhile True:\ntry:\nchunk, name = await queue.get()\nyield (chunk, name) [...] The first time any of the tasks belonging to the group fails with an exception other than `asyncio.CancelledError`, the remaining tasks in the group are cancelled. No further tasks can then be added to the group. At this point, if the body of the `async with` statement is still active (i.e., `__aexit__()` hasn\u2019t been called yet), the task directly containing the `async with` statement is also cancelled. The resulting `asyncio.CancelledError` will interrupt an `await` , but it will not bubble [...] there\u2019s possible problems with exceptions (the docs for `gather` say that if an exception occurs, the other tasks are left running in the background, which seems like it\u2019s not what I want\u2026)\n\n`gather`\n\nUsing a task group could at least help with the exception handling. The semantics are described in the docs as",
+            "score": 0.7304634,
+            "raw_content": null,
+            "id": "4d95b9-04"
+          }
+        ],
+        "response_time": 0.0,
+        "request_id": "7be0d5bd-b912-4e5b-aae2-25856f48fd26"
+      }
+    },
+    "taviless": {
+      "success": true,
+      "latency": 0.4918704032897949,
+      "data": {
+        "query": "asyncio task group exception handling",
+        "results": [],
+        "response_time": 0.49,
+        "answer": null,
+        "images": [],
+        "warnings": [
+          "duckduckgo: HTTP 202 (likely a bot challenge)",
+          "duckduckgo html GET: no parseable results (bot challenge or layout change?)",
+          "duckduckgo html POST: no parseable results (bot challenge or layout change?)",
+          "duckduckgo lite: HTTP 202 (likely a bot challenge)",
+          "duckduckgo lite: no parseable results (bot challenge or layout change?)"
+        ]
+      }
+    }
+  },
+  {
+    "benchmark": {
+      "name": "5. PEP 703 Technical Internals: Biased Reference Counting and mimalloc",
+      "query": "PEP 703 making the global interpreter lock optional mimalloc thread-safe biased reference counting",
+      "search_depth": "advanced",
+      "include_answer": true,
+      "domains": {},
+      "ground_truth_keywords": [
+        "biased reference counting",
+        "mimalloc",
+        "pep 703"
+      ]
+    },
+    "tavily": {
+      "success": true,
+      "latency": 3.991715908050537,
+      "data": {
+        "query": "PEP 703 making the global interpreter lock optional mimalloc thread-safe biased reference counting",
+        "follow_up_questions": null,
+        "answer": "PEP 703 proposes making the Global Interpreter Lock (GIL) optional in CPython by introducing biased reference counting (BRC) to make reference counting thread-safe, along with other techniques like immortalization and deferred reference counting. The PEP aims to enable true multi-threaded execution in Python, which is currently limited by the GIL. The implementation of BRC involves storing three pieces of information in each object\u2019s header: the \u201clocal\u201d reference count, the \u201cshared\u201d reference count, and the identifier of the owning thread. The sources do not provide a definitive answer on the current status or completion of this PEP.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://peps.python.org/pep-0703",
+            "title": "PEP 703 \u2013 Making the Global Interpreter Lock Optional in CPython | peps.python.org",
+            "content": "### Reference Counting\n\nRemoving the GIL requires changes to CPython\u2019s reference counting implementation to make it thread-safe. Furthermore, it needs to have low execution overhead and allow for efficient scaling with multiple threads. This PEP proposes a combination of three techniques to address these constraints. The first is a switch from plain non-atomic reference counting to biased reference counting, which is a thread-safe reference counting technique with lower execution overhead than plain atomic reference counting. The other two techniques are immortalization and a limited form of deferred reference counting; they address some of the multi-threaded scalability issues with reference counting by avoiding some reference count modifications. [...] This PEP proposes a technique for thread-safe list and dictionary accesses that typically avoids acquiring locks. This reduces execution overhead and avoids some multi-threaded scaling bottlenecks in common operations, like calling functions and methods. The scheme works by placing temporary restrictions on mimalloc page reuse to ensure that objects\u2019 reference count fields remain valid after objects are freed so that conditional reference count increment operations are safe. The restrictions are placed on mimalloc pages instead of on individual objects to improve opportunities for memory reuse. The restrictions are lifted as soon as the system can determine that there are no outstanding accesses involving the empty mimalloc page. To determine this, the system uses a combination of [...] The implementation of BRC proposed in this PEP largely matches the original description of biased reference counting, but differs in details like the size of reference counting fields and special bits in those fields. BRC requires storing three pieces of information in each object\u2019s header: the \u201clocal\u201d reference count, the \u201cshared\u201d reference count, and the identifier of the owning thread. The BRC paper packs these three things into a single 64-bit field. This PEP proposes using three separate fields in each object\u2019s header to avoid potential issues due to reference count overflow. Additionally, the PEP supports a faster deallocation path that avoids an atomic operation in the common case.\n\nThe proposed `PyObject` struct (also called `struct _object`) is below:",
+            "score": 0.87113565,
+            "raw_content": null,
+            "id": "8daef2-00"
+          },
+          {
+            "url": "https://wearecommunity.io/communities/tectoniques/articles/7462",
+            "title": "PEP 703 Explained: How Python Finally Removes the GIL",
+            "content": "PEP 703 solves this with three innovations: 1. Biased Reference Counting (BRC) The free-threaded build introduces optional support for mimalloc, Thread-safe",
+            "score": 0.80625874,
+            "raw_content": null,
+            "id": "89cc81-01"
+          },
+          {
+            "url": "https://medium.com/@bilal.ahmad02_21117/goodbye-gil-how-python-is-embracing-a-multicore-future-ab996cde2ea3",
+            "title": "Goodbye GIL: How Python Is Embracing a Multicore Future | by Bilal Ahmad | Medium",
+            "content": "## PEP 703: Making the GIL Optional in CPython\n\nPEP 703 proposes a major change to CPython\u2019s core by making the Global Interpreter Lock (GIL) optional. This effort aims to allow Python programs to fully utilize multi-core processors by enabling true multi-threaded execution, which is currently hindered by the GIL. While the GIL simplifies memory management and thread safety, it limits Python\u2019s performance in CPU-bound multi-threaded programs, especially on modern hardware with many cores.\n\n### Overview of CPython Changes\n\nRemoving the GIL is a significant undertaking that requires deep modifications to CPython\u2019s internals. These changes, however, aim to minimize impact on public Python and C APIs. The main areas of CPython affected by the removal of the GIL are: [...] PEP 703 offers a promising future by making the GIL optional. This change could unlock true multithreading in Python, leading to significant performance improvements in CPU-intensive applications. However, the transition won\u2019t be without challenges. Compatibility with existing C extensions, potential performance overheads, and increased complexity are hurdles that need careful consideration.\n\nAs the Python community continues to evolve, the possibility of a GIL-less Python opens up exciting opportunities for developers. It\u2019s an excellent time to engage with these developments, test your code in a GIL-less environment, and contribute to the discussion. If you're interested in trying GIL-less Python, visit this link.\n\n## References [...] ## References\n\nPEP 703 \u2014 Making the Global Interpreter Lock Optional in CPython\n\nSam Gross\u2019s NoGIL GitHub Repository\n\nPython Free Threading Project\n\nImmortal Objects, Using a fixed Refcount\n\n> The performance results mentioned were obtained on a MacBook Pro 2019 with a 2.6 GHz 6-Core Intel Core i7 processor and 16 GB of RAM. Actual performance may vary depending on hardware and system configuration.\n\nPython\n\nSoftware Development\n\nMachine Learning\n\nWeb Development\n\nBackend Development\n\nBilal Ahmad\n\nBilal Ahmad\n\n## Written by Bilal Ahmad\n\n0 followers\n\n\u00b7\n1 following\n\nSoftware Engineer\n\nText to speech",
+            "score": 0.7915799,
+            "raw_content": null,
+            "id": "41a0eb-02"
+          },
+          {
+            "url": "https://github.com/python/cpython/issues/108219",
+            "title": "PEP 703 -- Making the Global Interpreter Lock Optional in CPython \u00b7 Issue #108219 \u00b7 python/cpython \u00b7 GitHub",
+            "content": "`8ed62cab6a` pystate: use \\_PyRawMutex for internal mutexes (Avoid changing the PYMEM\\_DOMAIN\\_RAW allocator during initialization and finalization #111924)\n `e15443b1f2` ceval: move eval\\_breaker to per-thread state (Move the `eval_breaker` to `PyThreadState` #112175)\n `b6b12a9a94` Implement biased reference counting\n `b6b12a9a94` Implement BRC inter-thread queue (Implement biased reference counting in `--disable-gil` builds #110481)\n ~~`7b6b6f1a01` unicode: immortalize interned strings~~\n ~~`fc173e3711` unicode: always immortalize interned strings~~\n `dd9b78460c` Add safe memory reclamation scheme based on FreeBSD's GUS\n `901e134921` Add mimalloc v2.0.9 (DinoV)\n `b6980856df` Additional mimalloc changes (mimalloc: additional integration and changes for `--disable-gil` builds #112532) [...] Skip to content   \n \n \n\n## Navigation Menu\n\nSign in\n\nAppearance settings\n\nSign in\n\nSign up\n\nAppearance settings\n\nYou signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert\n\n{{ message }}\n\npython   /  cpython  Public\n\n ### Uh oh!\n\n  There was an error while loading. Please reload this page.\n Notifications  You must be signed in to change notification settings\n Fork 37k\n Star  77.4k\n\n# PEP 703 -- Making the Global Interpreter Lock Optional in CPython #108219\n\nCopy link\n\nCopy link\n\nClosed\n\nClosed\n\nPEP 703 -- Making the Global Interpreter Lock Optional in CPython#108219\n\nCopy link\n\nLabels [...] ~~`3cfbc49229` moduleobject: fix data races~~\n `5722416ef5` \\_threadmodule: thread-safety fixes (Make `_threadmodule.c` thread-safe in `--disable-gil` builds #114271)\n `31ec6f0290` pystate: refcount threads to handle race between interpreter shutdown and thread exit\n `45bdd27ee5` threading: make \\_thread.lock thread-safe\n `07f5f8c318` slice: move slice\\_cache to per-thread state (Use per-thread freelists in `--disable-gil` builds #111968)\n `ea1160c6d7` asyncio: fix race conditions in enter\\_task and leave\\_task\n `212fef480e` object.c: fix race when accessing attributes and methods (Use PyDict\\_GetItemRef() #111789)\n `70856f126d` asdl: use \\_PyOnceFlag in Python-ast.c (Thread-safe one-time initialization #111956)",
+            "score": 0.78963995,
+            "raw_content": null,
+            "id": "964b3d-03"
+          },
+          {
+            "url": "https://lwn.net/Articles/919563",
+            "title": "PEP 703: Making the Python global interpreter lock optional [LWN.net]",
+            "content": "[Posted January 10, 2023 by corbet]\n\nIn late 2021, LWN covered a plan to eliminate the Python global interpreter lock (GIL), thus improving the language's thread-level concurrency. This plan has now been codified as PEP 703, which includes an extensive discussion of the changes that would be made.\n> The global interpreter lock will remain the default for CPython builds and python.org downloads. A new build configuration flag, --without-gil will be added to the configure script that will build CPython without the global interpreter lock.\n\nThe posting of a PEP is only one step in a long path toward integrating this change into the CPython interpreter; expect some extended discussions over the coming months.",
+            "score": 0.78154784,
+            "raw_content": null,
+            "id": "af4ce6-04"
+          }
+        ],
+        "response_time": 3.71,
+        "request_id": "f973a349-6262-44e7-b85d-c5a2e8ee32c6"
+      }
+    },
+    "taviless": {
+      "success": true,
+      "latency": 1.1793572902679443,
+      "data": {
+        "query": "PEP 703 making the global interpreter lock optional mimalloc thread-safe biased reference counting",
+        "results": [],
+        "response_time": 1.18,
+        "answer": null,
+        "images": [],
+        "warnings": [
+          "duckduckgo: HTTP 202 (likely a bot challenge)",
+          "duckduckgo html GET: no parseable results (bot challenge or layout change?)",
+          "duckduckgo html POST: no parseable results (bot challenge or layout change?)",
+          "duckduckgo lite: no parseable results (bot challenge or layout change?)"
+        ]
+      }
+    }
+  },
+  {
+    "benchmark": {
+      "name": "6. Specific Technical Artifact Details: SQLite 3.45.0 JSONB",
+      "query": "SQLite version 3.45.0 release date jsonb binary json format size savings",
+      "search_depth": "basic",
+      "include_answer": true,
+      "domains": {},
+      "ground_truth_keywords": [
+        "jsonb",
+        "sqlite",
+        "2024"
+      ]
+    },
+    "tavily": {
+      "success": true,
+      "latency": 2.7763826847076416,
+      "data": {
+        "query": "SQLite version 3.45.0 release date jsonb binary json format size savings",
+        "follow_up_questions": null,
+        "answer": "SQLite version 3.45.0 introduced a binary JSON format called \"JSONB\" that stores SQLite's internal binary representation of JSON as a BLOB, which is slightly smaller and processed faster than text JSON. The JSONB format uses between 5% and 10% less disk space and can be processed in less than half the CPU cycles compared to text JSON. Each JSON element in JSONB is encoded with a header and a payload, where the header determines the type and size of the element. The payload can be any size up to the maximum BLOB size. The sources do not provide specific figures for the maximum size of JSONB data.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://sqlite.org/json1.html",
+            "title": "JSON Functions And Operators",
+            "content": "## 3.2. JSONB\n\nBeginning with version 3.45.0 (2024-01-15), SQLite allows its internal \"parse tree\" representation of JSON to be stored on disk, as a BLOB, in a format that we call \"JSONB\". By storing SQLite's internal binary representation of JSON directly in the database, applications can bypass the overhead of parsing and rendering JSON when reading and updating JSON values. The internal JSONB format also uses slightly less disk space than text JSON. [...] This JSON BLOB input bug was accidentally fixed when the JSON routines were reimplemented for the 3.45.0 release (2024-01-15). That caused breakage in applications that had come to depend on the old behavior. (In defense of those applications: they were often lured into using BLOBs as JSON by the readfile() SQL function available in the CLI. Readfile() was used to read JSON from disk files, but readfile() returns a BLOB. And that worked for them, so why not just do it?) [...] For backwards bug-compatibility, the (formerly incorrect) legacy behavior of interpreting BLOBs as text JSON if no other interpretation works is hereby documented and is officially supported in version 3.45.1 (2024-01-30) and all subsequent releases. Beware, however, that there exist BLOBs which are both valid JSONB and which are valid JSON after being cast to text. For example, the BLOB x'33343536' is valid JSONB, specifically the integer 456, and when cast to text is the valid JSON integer",
+            "score": 0.8765607,
+            "raw_content": null,
+            "id": "a84f2c-00"
+          },
+          {
+            "url": "https://www.cclsolutionsgroup.com/post/sqlites-new-binary-json-format",
+            "title": "SQLite\u2019s New Binary JSON Format - CCL",
+            "content": "The newest version (at the time of writing) is 3.45.0 which brings with it further enhancements to the JSON functionality. In particular: internally SQLite uses a faster, smaller, binary JSON format. This format is serializable and available to applications using the database if developers are happy to choose performance over readability (for them, not their users) of the data being stored. [...] JSON data will tend to have either an object or array as its root object (otherwise, in the context of SQLite, it would be better stored as a native datatype). This means that JSONB data will almost always start with tags of those types: 0x?B or 0x?C. The upper 4-bits encodes the length, which is, of course variable, however, it is unlikely (though not impossible!) in many cases that the length will be under 12 bytes, and I would be even more surprised to find more than 4GB(!) of JSON data, [...] this is the root value should account for the remaining JSONB data (which it does).",
+            "score": 0.79293,
+            "raw_content": null,
+            "id": "4ab5db-01"
+          },
+          {
+            "url": "https://sqlite.org/jsonb.html",
+            "title": "The SQLite JSONB Format",
+            "content": "Beginning with version 3.45.0 (pending), SQLite supports an alternative binary encoding of JSON which we call \"JSONB\". JSONB is a binary format that stored as a BLOB. [...] The advantage of JSONB over ordinary text RFC 8259 JSON is that JSONB is both slightly smaller (by between 5% and 10% in most cases) and can be processed in less than half the number of CPU cycles. The built-in JSON SQL functions of SQLite can accept either ordinary text JSON or the binary JSONB encoding for any of their JSON inputs. [...] Each JSON element is encoded as a header and a payload. The header determines type of element (string, numeric, boolean, null, object, or array) and the size of the payload. The header can be between 1 and 9 bytes in size. The payload can be any size from zero bytes up to the maximum allowed BLOB size.\n\n## 3.1. Payload Size",
+            "score": 0.7559439,
+            "raw_content": null,
+            "id": "76092b-02"
+          },
+          {
+            "url": "https://www.devclass.com/databases/2024/01/16/sqlites-new-support-for-binary-json-is-similar-but-different-from-a-postgresql-feature/1624672",
+            "title": "SQLite\u2019s new support for binary JSON is similar but different from a PostgreSQL feature",
+            "content": "Jump to main content\n\nGo to frontpage. Logo, DEVCLASS     Go to frontpage. Logo, DEVCLASS     Go to frontpage. Logo, DEVCLASS\n\nDEVCLASS AD\n\n# SQLite\u2019s new support for binary JSON is similar but different from a PostgreSQL feature\n\nTim Anderson  Tim Anderson\n\nPublished\n\nVersion 3.45 of SQLite adds support for JSONB, a binary representation of JSON for internal use, but the format is not the same as JSONB in PostgreSQL. [...] DEVCLASS AD\n\nNow SQLite can also store JSON as a BLOB type, a binary representation of JSON. The purpose, aside from saving a small amount of disk space, is to avoid \u201cthe overhead of parsing and rendering JSON when reading and updating JSON values.\u201d The JSON functions now have corresponding JSONB functions, which return this binary format, and all JSON functions now accept JSON in either text or JSONB format. [...] Nevertheless, the promise that \u201cif you modify your application to start storing JSONB instead of text JSON, you might see a three-times performance improvement,\u201d according to a post by Hipp last month, along with disk space savings, makes this a welcome feature for what may be the world\u2019s most widely deployed database engine.\n\ndevelopment databases\n\nDEVCLASS AD\n\n## Node.js creator ditches Deno to work on open source Cloudflare Workers\n\nOctober 17, 2026",
+            "score": 0.7286136,
+            "raw_content": null,
+            "id": "5b5432-03"
+          },
+          {
+            "url": "https://medium.com/db-one/a-deep-dive-into-binary-json-formats-jsonb-e728ea0f5690",
+            "title": "A deep dive into Binary JSON formats: JSONB",
+            "content": "Sitemap\n\nOpen in app\n\nSign up\n\nSign in\n\n (see below notes)\n   the in-memory format that supports a bit more value types (more on that later), known as `JsonbValue`\n   the JSONB data type from SQLite 3.45.0, which \u2014 according to its author \u201c_is completely different and incompatible with PostgreSQL JSONB_\"\n\nFollowing, we\u2019ll deal solely with the on-disk format (first bullet).\n\n### Key capabilities [...] In the previous example, the JSON UTF-8 text data is 47,321 bytes long while the JSONB encoded value takes 65,667 bytes uncompressed, 12,012 bytes with LZ4 compression, and 9,717 bytes with PGLZ compression.\n\nThe typical queries used were: [...] 32-bit alignment for numbers and the identical-level-keys-list (_See the picture above. The gray square surrounds 3 bytes added for padding_).\n   Maximum size of 256 MiB\n   Offset/Length encoding of `Jentry` to speed up array processing and tradeoff with compressibility. Offset is used every 32 children.",
+            "score": 0.5948579,
+            "raw_content": null,
+            "id": "560341-04"
+          }
+        ],
+        "response_time": 2.5,
+        "request_id": "77489fb7-ceaf-468c-9231-d1f2bc98c99c"
+      }
+    },
+    "taviless": {
+      "success": true,
+      "latency": 2.124065637588501,
+      "data": {
+        "query": "SQLite version 3.45.0 release date jsonb binary json format size savings",
+        "results": [
+          {
+            "title": "SQLite Release 3.45.0 On 2024-01-15",
+            "url": "https://sqlite.org/releaselog/3_45_0.html",
+            "content": "SQLite Release 3.45.0 On 2024-01-15\n\n\nSmall. Fast. Reliable.\nChoose any three.\n\n\n- Home\n\n- Menu\n\n- About\n\n- Documentation\n\n- Download\n\n- License\n\n- Support\n\n- Purchase\n\n-\nSearch\n\n\n- About\n\n- Documentation\n\n- Download\n\n- Support\n\n- Purchase\n\n\n## SQLite Release 3.45.0 On 2024-01-15\n\n\n- Added the SQLITE_RESULT_SUBTYPE property for\napplication-defined SQL functions.\nAll application defined SQL functions that invokes\nsqlite3_result_subtype() must be registered with this new property.\nFailure to do so might cause the call to sqlite3_result_subtype() to\nbehave as a no-op. Compile with -DSQLITE_STRICT_SUBTYPE=1 to cause an\nSQL error to be raised if a function that is not SQLITE_RESULT_SUBTYPE\ntries invokes sqlite3_result_subtype(). The use of -DSQLITE_STRICT_SUBTYPE=1\nis a recommended compile-time option for every application that makes\nuse of subtypes.\n\n- Enhancements to the JSON SQL functions:\n\n\n- All JSON functions are rewritten to use a new internal parse tree\nformat called JSONB. The new parse-tree format is serializable\nand hence can be stored in the database to avoid unnecessary re-parsing\nwhenever the JSON value is used.\n\n- New versions of JSON-generating functions generate binary JSONB instead\nof JSON text.\n\n- The json_valid() function adds an optional second argument that\nspecifies what it means for the first argument to be \"well-formed\".\n\n\n- Add the FTS5 tokendata option to the FTS5 virtual table.\n\n- The SQLITE_DIRECT_OVERFLOW_READ optimization is now enabled by default.\nDisable it at compile-time using -DSQLITE_DIRECT_OVERFLOW_READ=0.\n\n- Query planner improvements:\n\n\n- Do not allow the transitive constraint optimization to trick the\nquery planner into using a range constraint when a better equality\nconstraint is available.\n(Forum post 2568d1f6e6.)\n\n- The query planner now does a better job of disregarding\nindexes that ANALYZE identifies as low-quality.\n(Forum post 6f0958b03b.)\n\n\n- Increase the default value for SQLITE_MAX_PAGE_COUNT from 1073741824 to\n4294967294.\n\n- Enhancements to the CLI:\n\n\n- Improvements to the display of UTF-8 content on Windows\n\n- Automatically detect playback of \".dump\" scripts and make appropriate\nchanges to settings such as \".dbconfig defensive off\" and\n\".dbconfig dqs_dll on\".\n\n\nHashes:\n\n- SQLITE_SOURCE_ID: 2024-01-15 17:01:13 1066602b2b1976fe58b5150777cced894af17c803e068f5918390d6915b46e1d\n\n- SHA3-256 for sqlite3.c: f56d8e5e8c61d87b957f1cc60b3042c134d7bc0ca3aba002e6999e8f0af310a3\n\n\nA complete list of SQLite releases\nin a single page and a chronology are both also available.\nA detailed history of every\ncheck-in is available at\n\nSQLite version control site.",
+            "score": 0.77,
+            "raw_content": null
+          },
+          {
+            "title": "SQLite Release 3.45.0 On 2024-01-15",
+            "url": "https://ftp.sqlite.org/releaselog/3_45_0.html",
+            "content": "All JSON functions are rewritten to use a new internal parse tree format called JSONB. The new parse-tree format is serializable and hence can be stored in the database to avoid unnecessary re-parsing whenever the JSON value is used. New versions of JSON-generating functions generate binary JSONB instead of JSON text.",
+            "score": 0.7,
+            "raw_content": null
+          },
+          {
+            "title": "The SQLite JSONB Format",
+            "url": "https://sqlite.org/jsonb.html",
+            "content": "Beginning with version 3.45.0 (pending), SQLite supports an alternative binary encoding of JSON which we call \"JSONB\". JSONB is a binary format that stored as a BLOB.",
+            "score": 0.62,
+            "raw_content": null
+          },
+          {
+            "title": "The JSONB Format - chromium.googlesource.com",
+            "url": "https://chromium.googlesource.com/external/github.com/sqlite/sqlite/+/HEAD/doc/jsonb.md",
+            "content": "Beginning with version 3.45.0 (circa 2024-01-01), SQLite supports an alternative binary encoding of JSON which we call \"JSONB\". JSONB is a binary format that stored as a BLOB.",
+            "score": 0.56,
+            "raw_content": null
+          },
+          {
+            "title": "SQLite 3.45 Released With JSON Functions Adapted To Use JSONB",
+            "url": "https://www.phoronix.com/news/SQLite-3.45-Released",
+            "content": "SQLite 3.45 was released today with the SQLITE_DIRECT_OVERFLOW_READ optimization being enabled by default that can help for apps relying on SQLite and doing a lot of reads of large BLOBs or strings deliver better read performance. There are also query planner improvements while most interesting with SQLite 3.45 is all JSON functions being rewritten to use the new JSONB format. The JSONB-ed ...",
+            "score": 0.52,
+            "raw_content": null
+          }
+        ],
+        "response_time": 2.12,
+        "answer": "Beginning with version 3.45.0 (pending), SQLite supports an alternative binary encoding of JSON which we call \"JSONB\". SQLite Release 3.45.0 On 2024-01-15 (Sources: sqlite.org)",
+        "images": [],
+        "warnings": [
+          "crawl: could not fetch 1 of 2 pages (kept search snippets)"
+        ]
+      }
+    }
+  }
+]

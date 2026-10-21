@@ -122,7 +122,7 @@ class _ContentHTMLParser(HTMLParser):
         return "\n".join(cleaned_lines).strip()
 
 
-def extract_text_stdlib(html_content: str, max_chars: int = 5000) -> str:
+def extract_text_stdlib(html_content: str, max_chars: int = 20000) -> str:
     """Extract clean, structural text/markdown from raw HTML using standard library tools.
 
     Args:

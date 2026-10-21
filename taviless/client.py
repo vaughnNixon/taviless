@@ -174,13 +174,26 @@ class TavilyClient:
         # Heuristic relevance score (rank prior + query-term overlap); sorts results
         results = score_results(query, results)
 
-        # Step 2: If advanced search depth is requested, crawl top pages in parallel
+        # Step 2: Crawl top pages in parallel if advanced depth or if an answer is requested
+        max_crawl = kwargs.get("max_chars")
         if search_depth == "advanced" and results:
             results = self._crawl_and_extract_parallel(
                 results,
                 include_raw_content=include_raw_content,
                 reverse_chronological=is_temporal,
+                max_chars=max_crawl or 20000,
             )
+        elif include_answer and results:
+            # When an answer is requested in basic depth, peek at the top 2 results concurrently
+            # with clean content so the extractive answer has grounded facts instead of truncated snippets.
+            peek_n = min(2, len(results))
+            top_peek = self._crawl_and_extract_parallel(
+                results[:peek_n],
+                include_raw_content=False,
+                reverse_chronological=False,
+                max_chars=max_crawl or 10000,
+            )
+            results = top_peek + results[peek_n:]
 
         elapsed = round(time.time() - start_time, 2)
 
@@ -208,6 +221,7 @@ class TavilyClient:
         results: List[SearchResult],
         include_raw_content: bool = False,
         reverse_chronological: bool = False,
+        max_chars: int = 20000,
     ) -> List[SearchResult]:
         """Crawl the top links concurrently and extract clean, token-dense markdown content."""
 
@@ -221,7 +235,7 @@ class TavilyClient:
             clean_text, raw_html = fetch_and_extract(
                 url=url,
                 timeout=self.crawl_timeout,
-                max_chars=4000,
+                max_chars=max_chars,
                 use_trafilatura=self.use_trafilatura,
                 reverse_chronological=reverse_chronological,
             )
@@ -300,6 +314,7 @@ class TavilyClient:
         urls: Union[str, List[str]],
         include_images: bool = False,
         extract_depth: str = "basic",
+        max_chars: Optional[int] = None,
         **kwargs: Any,
     ) -> Dict[str, Any]:
         """Extract content from one or more URLs in parallel (Tavily extract API compatible).
@@ -308,6 +323,7 @@ class TavilyClient:
             urls: A single URL string or a list of URL strings.
             include_images: Whether to extract images (reserved for compatibility).
             extract_depth: "basic" or "advanced".
+            max_chars: Optional maximum character count to retain per URL.
             **kwargs: Other Tavily extract arguments (safely ignored).
 
         Returns:
@@ -320,12 +336,14 @@ class TavilyClient:
         results: List[Dict[str, Any]] = []
         failed_results: List[Dict[str, Any]] = []
 
+        effective_max_chars = max_chars or (25000 if extract_depth == "advanced" else 10000)
+
         def _extract_one(target_url: str):
             try:
                 clean_text, raw_html = fetch_and_extract(
                     url=target_url,
                     timeout=self.crawl_timeout,
-                    max_chars=8000 if extract_depth == "advanced" else 4000,
+                    max_chars=effective_max_chars,
                     use_trafilatura=self.use_trafilatura,
                 )
                 if clean_text:

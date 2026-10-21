@@ -55,37 +55,77 @@ def score_results(query: str, results: List[SearchResult]) -> List[SearchResult]
 def extractive_answer(query: str, results: List[SearchResult], max_sentences: int = 2) -> Optional[str]:
     """Best matching sentence(s) from the top results, with source domains.
 
-    Returns None when no sentence covers at least half of the query terms, so
-    callers can fall back instead of showing an irrelevant "answer".
+    Returns None when no sentence meets the minimum relevance threshold, so
+    callers can fall back instead of showing an irrelevant 'answer'.
     """
     terms = query_terms(query)
     if not terms:
         return None
-    min_hits = min(2, len(terms))
-    candidates = []  # (-coverage, result_idx, position, sentence, domain)
+
+    # Calibrated relevance thresholds:
+    # Short query (<= 3 terms): sentence must cover >= 50% of terms.
+    # Long query (> 3 terms): sentence must hit >= 2 distinct terms or >= 25% coverage.
+    min_hits = 1 if len(terms) == 1 else 2
+    min_coverage = 0.5 if len(terms) <= 3 else 0.25
+
+    candidates = []  # (-score, -hits, ridx, pos, sent, domain, hit_terms)
     for ridx, r in enumerate(results[:5]):
         domain = urlparse(r.get("url", "")).netloc.lower().removeprefix("www.") if r.get("url") else ""
-        for pos, sent in enumerate(_SENT_SPLIT.split(r.get("content", "") or "")):
+        content = r.get("content", "") or ""
+        for pos, sent in enumerate(_SENT_SPLIT.split(content)):
             sent = sent.strip()
-            if not 40 <= len(sent) <= 300:
+            if not 35 <= len(sent) <= 350:
                 continue
-            hits = len(terms & set(_tokens(sent)))
-            if hits < min_hits or hits / len(terms) < 0.5:
+            sent_tokens = set(_tokens(sent))
+            hit_terms = terms & sent_tokens
+            hits = len(hit_terms)
+            if hits < min_hits:
                 continue
-            candidates.append((-hits / len(terms), ridx, pos, sent, domain))
+            coverage = hits / len(terms)
+            if coverage < min_coverage and hits < 3:
+                continue
+
+            density = hits / max(1, len(sent_tokens))
+            rank_bonus = 1.0 / (1.0 + ridx * 0.2)
+            composite_score = (hits * 2.0 + density * 5.0) * rank_bonus
+            candidates.append((-composite_score, -hits, ridx, pos, sent, domain, hit_terms))
+
     if not candidates:
         return None
+
     candidates.sort()
+
     picked, seen, domains = [], set(), []
-    for _, _, _, sent, domain in candidates:
-        key = sent.lower()
-        if key in seen:
-            continue
-        seen.add(key)
-        picked.append(sent)
-        if domain and domain not in domains:
-            domains.append(domain)
-        if len(picked) >= max_sentences:
-            break
+    covered_terms: Set[str] = set()
+
+    # Pick the top scoring sentence
+    best = candidates[0]
+    picked.append(best[4])
+    seen.add(best[4].lower())
+    if best[5] and best[5] not in domains:
+        domains.append(best[5])
+    covered_terms.update(best[6])
+
+    # If max_sentences > 1, pick the next sentence that maximizes NEW query terms
+    if max_sentences > 1:
+        best_complement = None
+        best_new_hits = 0
+        for _, _, _, _, sent, dom, hit_terms in candidates[1:]:
+            if sent.lower() in seen:
+                continue
+            new_terms = hit_terms - covered_terms
+            if len(new_terms) > best_new_hits:
+                best_new_hits = len(new_terms)
+                best_complement = (sent, dom, new_terms)
+
+        if best_complement and best_new_hits > 0:
+            picked.append(best_complement[0])
+            if best_complement[1] and best_complement[1] not in domains:
+                domains.append(best_complement[1])
+        elif len(candidates) > 1 and candidates[1][4].lower() not in seen:
+            picked.append(candidates[1][4])
+            if candidates[1][5] and candidates[1][5] not in domains:
+                domains.append(candidates[1][5])
+
     answer = " ".join(picked)
     return f"{answer} (Sources: {', '.join(domains)})" if domains else answer

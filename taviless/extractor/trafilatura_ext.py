@@ -17,7 +17,7 @@ except ImportError:
     HAS_TRAFILATURA = False
 
 
-def extract_with_trafilatura(html_content: str, max_chars: int = 5000) -> str:
+def extract_with_trafilatura(html_content: str, max_chars: int = 20000) -> str:
     """Extract token-dense markdown content using trafilatura if available, falling back to stdlib.
 
     Args:

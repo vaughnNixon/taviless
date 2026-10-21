@@ -93,7 +93,7 @@ def fetch_url(url: str, timeout: float = 4.0) -> Tuple[str, str]:
 
 def extract_content(
     html_content: str,
-    max_chars: int = 5000,
+    max_chars: int = 20000,
     use_trafilatura: bool = True,
     reverse_chronological: bool = False,
 ) -> str:
@@ -122,7 +122,7 @@ def extract_content(
 def fetch_and_extract(
     url: str,
     timeout: float = 4.0,
-    max_chars: int = 5000,
+    max_chars: int = 20000,
     use_trafilatura: bool = True,
     reverse_chronological: bool = False,
 ) -> Tuple[str, Optional[str]]:

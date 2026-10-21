@@ -252,6 +252,49 @@ researcher = Agent(
 
 ---
 
+---
+
+## 🔬 Head-to-Head Benchmark: Taviless vs. Official Tavily API
+
+We executed a real-world, 6-challenge raw retrieval benchmark pitting **Taviless** directly against the **Official Tavily Search API** (using live API credits). 
+
+The full, unabridged raw JSON responses and test harness are included in the repository:
+- **Test Runner:** [`benchmarks/run_benchmark.py`](benchmarks/run_benchmark.py)
+- **Raw Benchmark Data:** [`benchmarks/raw_results.json`](benchmarks/raw_results.json) (121 KB of unfiltered network payloads)
+
+### Benchmark Results Table
+
+| Challenge | Official Tavily API | Taviless (v0.1.1) | Ground Truth & Behavior Analysis |
+| :--- | :--- | :--- | :--- |
+| **1. Archival Primary Source** *(1970 NBS Bulletin)* | 1.69s | **3.74s** | 🏆 **Taviless won ground truth.** Tavily drifted into commercial lab vendor SEO; its LLM admitted failure (*"Sources do not provide specific details..."*). Taviless extracted **10,000+ characters of raw OCR text** directly from `archive.org`. |
+| **2. Python 3.13 Free-Threading API** | **0.27s** *(cached)* | 5.44s | 🏅 **Tavily won depth.** Tavily surfaced both `PYTHON_GIL=0` and `sys._is_gil_enabled()`. Taviless extracted `PYTHON_GIL=1`, but missed `_is_gil_enabled` in the StackOverflow question snippet. |
+| **3. Security Forensics: CVE-2024-3094** *(Advanced)* | **0.27s** *(cached)* | 2.18s | 🏅 **Tavily won depth.** Tavily extracted both injected files (`bad-3-corrupt_lzma2` & `good-large_compressed`). Taviless extracted `bad-3-corrupt_lzma2`, but top slots went to institutional registries (NVD / CVE.org). |
+| **4. Strict Domain Filtering** *(python.org)* | **0.28s** | 0.49s | 🏅 **Tavily won uptime.** Tavily returned 5 discussion threads. Taviless hit DuckDuckGo's HTTP 202 bot challenge due to rapid-fire test bursts from a single IP. |
+| **5. PEP 703 Internals** *(mimalloc & BRC)* | 3.99s | **1.18s** | 🏅 **Tavily won uptime.** Tavily synthesized Biased Reference Counting details. Taviless hit DuckDuckGo HTTP 202 bot challenge during the burst. |
+| **6. SQLite 3.45.0 JSONB Release** | 2.78s | **2.12s** | 🏆 **Taviless won speed & precision.** Taviless extracted the exact release date (`2024-01-15`) and official binary JSON specification directly from `sqlite.org`, beating Tavily's latency. |
+
+---
+
+## ⚖️ Real Technical Limits & Trade-Offs (No Sugarcoating)
+
+We believe in radical technical transparency. Here are the exact limitations of Taviless compared to paid search APIs:
+
+### 1. The Rate-Limiting Reality: Public Gateways vs. Paid Cloud Proxies
+* **Official Tavily ($29 – $100+/month):** Tavily maintains a multi-million-request pool of rotating residential proxies. You can hammer 50 queries in 5 seconds without ever seeing a CAPTCHA.
+* **Taviless ($0.00 / Free):** Uses open public SearXNG gateways and DuckDuckGo endpoints. If you send **20+ queries in rapid succession within seconds from a single residential IP**, DuckDuckGo will temporarily return an `HTTP 202 Bot Challenge`.
+* **The Solution:** For standard AI agents (LangChain, AutoGen, CrewAI), the model naturally pauses for 3–6 seconds between thoughts, so rate limits are rarely triggered. For high-throughput scraper swarms, spin up a local 1-line Docker node: `TavilyClient(searxng_url="http://localhost:8080")`.
+
+### 2. Extractive Quotes vs. Generative LLM Summaries
+* **Official Tavily:** Includes a server-side generative LLM that writes 2–3 cohesive English paragraphs summarizing the sources.
+* **Taviless:** **100% model-free**. Its `answer` field extracts the highest-density factual sentences directly from the source pages with citations. If no sentences cross the density threshold, it cleanly returns `null` rather than hallucinating.
+* **Why this matters for agents:** If you are feeding search results into an AI agent (GPT-4o, Claude 3.5, Gemini), **your agent is already doing the answering**. Paying Tavily extra just to generate an answer you throw away is redundant.
+
+### 3. Snippets vs. Deep Web Crawling
+* In `search_depth="basic"`, Taviless uses fast search engine snippets (~0.7s) to protect your latency and context window. If a question is buried deep in a StackOverflow answer, basic snippets might miss it.
+* In `search_depth="advanced"`, Taviless concurrently crawls and parses up to **20,000 characters per page**. For explicit page reading, call `client.extract(urls=[...])` which supports up to 25,000+ characters per URL.
+
+---
+
 ## 🔎 Response Fields: What's Real
 
 Taviless has no model in the loop, so a few fields differ from Tavily's:

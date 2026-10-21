@@ -32,6 +32,8 @@ htmlcov/
 Thumbs.db
 
 # Benchmarks & Scratch (temporary keys/runs)
-*benchmark*
+benchmark_runner*.py
+benchmark_results*.json
+benchmark_analyze*.py
 scratch/
 .env*
