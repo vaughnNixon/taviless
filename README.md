@@ -251,6 +251,16 @@ researcher = Agent(
 
 ---
 
+## 🔎 Response Fields: What's Real
+
+Taviless has no model in the loop, so a few fields differ from Tavily's:
+
+- **`score`**: a transparent heuristic, **not** a model relevance score. It's `0.5 × rank prior + 0.5 × query-term overlap` (title weighted), clamped to 0.05-0.99, and results are sorted by it. Good for ordering and thresholding sanity checks, not for comparing across queries.
+- **`answer`** (with `include_answer=True`): **extractive**, not generated. It's the best-matching sentence(s) from the top results, with source domains appended, e.g. `"... (Sources: docs.python.org)"`. When nothing matches at least half the query terms it is `null`, so check for that.
+- **`warnings`** (extra field, only present when something went wrong): why a search came back thin or empty, e.g. a DuckDuckGo bot challenge, a SearXNG `403` (JSON format disabled), or pages that couldn't be crawled. Empty results with no warnings means the engines really found nothing.
+
+---
+
 ## ⚠️ Limitations & Best Practices
 
 While Taviless provides a robust multi-engine gateway out of the box, keep the following real-world characteristics in mind:
@@ -274,7 +284,7 @@ While Taviless provides a robust multi-engine gateway out of the box, keep the f
 ## 🧪 Testing
 
 ```bash
-# Run unit test suite (31 passing tests)
+# Run unit test suite (41 passing tests)
 python -m unittest discover tests
 
 # Run live verification

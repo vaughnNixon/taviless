@@ -12,6 +12,7 @@ from typing import Dict, List, Optional
 import urllib.parse
 import urllib.request
 
+from taviless import diagnostics
 from taviless.engines.base import BaseSearchEngine
 from taviless.types import SearchResult
 
@@ -64,11 +65,13 @@ class SearXNGEngine(BaseSearchEngine):
         """Query SearXNG gateways with automatic failover."""
         # 1. If custom/local URL is set, prioritize it unconditionally
         if self.custom_url:
+            errs: List[str] = []
             results = self._query_instance(
                 self.custom_url,
                 query,
                 max_results * 2,
                 time_range=time_range,
+                errors=errs,
             )
             if results:
                 return self.filter_and_rank(
@@ -77,6 +80,8 @@ class SearXNGEngine(BaseSearchEngine):
                     include_domains=include_domains,
                     exclude_domains=exclude_domains,
                 )
+            for m in errs:
+                diagnostics.note(m)
 
             # Private instance configured: never fall back to public gateways
             # (would leak queries the user meant to keep private).
@@ -93,10 +98,12 @@ class SearXNGEngine(BaseSearchEngine):
         if not candidates:
             return []
 
+        errs = []
         executor = concurrent.futures.ThreadPoolExecutor(max_workers=len(candidates))
         futures = {
             executor.submit(
-                self._query_instance, g, query, max_results * 2, time_range=time_range
+                self._query_instance, g, query, max_results * 2,
+                time_range=time_range, errors=errs,
             ): g
             for g in candidates
         }
@@ -120,6 +127,8 @@ class SearXNGEngine(BaseSearchEngine):
             executor.shutdown(wait=False, cancel_futures=True)
 
         if not winner:
+            for m in list(errs):
+                diagnostics.note(m)
             return []
 
         # Promote working gateway to the front of the candidate list
@@ -140,6 +149,7 @@ class SearXNGEngine(BaseSearchEngine):
         query: str,
         limit: int,
         time_range: Optional[str] = None,
+        errors: Optional[List[str]] = None,
     ) -> List[SearchResult]:
         """Send a JSON search request to a specific SearXNG instance."""
         clean_base = base_url.rstrip("/")
@@ -158,6 +168,8 @@ class SearXNGEngine(BaseSearchEngine):
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 if resp.status != 200:
+                    if errors is not None:
+                        errors.append(f"searxng {clean_base}: HTTP {resp.status}")
                     return []
                 content = resp.read().decode("utf-8", errors="replace")
                 data = json.loads(content)
@@ -165,6 +177,9 @@ class SearXNGEngine(BaseSearchEngine):
                 return self._parse_json_results(raw_results, limit)
         except Exception as e:
             logger.debug("SearXNG instance %s failed: %s", base_url, e)
+            if errors is not None:
+                hint = " (JSON format disabled or blocked?)" if "403" in str(e) else ""
+                errors.append(f"searxng {clean_base}: {type(e).__name__}: {e}{hint}")
             return []
 
     def _parse_json_results(self, raw_results: list, limit: int) -> List[SearchResult]:

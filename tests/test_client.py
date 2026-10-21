@@ -37,7 +37,9 @@ class TestClient(unittest.TestCase):
         self.assertEqual(item["title"], "Quantum Computing 101")
         self.assertEqual(item["url"], "https://example.com/quantum")
         self.assertEqual(item["content"], "Quantum computers use qubits instead of bits.")
-        self.assertEqual(item["score"], 0.95)
+        # Score is computed by the client (heuristic), always within 0.05-0.99
+        self.assertGreaterEqual(item["score"], 0.05)
+        self.assertLessEqual(item["score"], 0.99)
 
     @patch("taviless.client.fetch_and_extract")
     @patch("taviless.engines.MultiEngineGateway.search")

@@ -11,6 +11,7 @@ from typing import List, Optional
 import urllib.parse
 import urllib.request
 
+from taviless import diagnostics
 from taviless.engines.base import BaseSearchEngine
 from taviless.types import SearchResult
 
@@ -130,10 +131,15 @@ class DuckDuckGoEngine(BaseSearchEngine):
                 if resp.status == 200:
                     body = resp.read().decode("utf-8", errors="replace")
                     if "web-result" in body:
-                        return self._parse_html_results(body, limit)
+                        parsed = self._parse_html_results(body, limit)
+                        if parsed:
+                            return parsed
+                else:
+                    diagnostics.note(f"duckduckgo: HTTP {resp.status} (likely a bot challenge)")
+            diagnostics.note("duckduckgo html GET: no parseable results (bot challenge or layout change?)")
             return []
         except Exception as e:
-            logger.debug("DuckDuckGo HTML GET search failed: %s", e)
+            diagnostics.note(f"duckduckgo html GET: {type(e).__name__}: {e}")
             return []
 
     def _search_html_post(self, query: str, limit: int, df_code: Optional[str] = None) -> List[SearchResult]:
@@ -150,10 +156,15 @@ class DuckDuckGoEngine(BaseSearchEngine):
                 if resp.status == 200:
                     body = resp.read().decode("utf-8", errors="replace")
                     if "web-result" in body:
-                        return self._parse_html_results(body, limit)
+                        parsed = self._parse_html_results(body, limit)
+                        if parsed:
+                            return parsed
+                else:
+                    diagnostics.note(f"duckduckgo: HTTP {resp.status} (likely a bot challenge)")
+            diagnostics.note("duckduckgo html POST: no parseable results (bot challenge or layout change?)")
             return []
         except Exception as e:
-            logger.debug("DuckDuckGo HTML POST search failed: %s", e)
+            diagnostics.note(f"duckduckgo html POST: {type(e).__name__}: {e}")
             return []
 
     def _parse_html_results(self, html_doc: str, limit: int) -> List[SearchResult]:
@@ -217,10 +228,15 @@ class DuckDuckGoEngine(BaseSearchEngine):
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 if resp.status == 200:
                     body = resp.read().decode("utf-8", errors="replace")
-                    return self._parse_lite_results(body, limit)
+                    parsed = self._parse_lite_results(body, limit)
+                    if parsed:
+                        return parsed
+                else:
+                    diagnostics.note(f"duckduckgo lite: HTTP {resp.status} (likely a bot challenge)")
+            diagnostics.note("duckduckgo lite: no parseable results (bot challenge or layout change?)")
             return []
         except Exception as e:
-            logger.debug("DuckDuckGo Lite search failed: %s", e)
+            diagnostics.note(f"duckduckgo lite: {type(e).__name__}: {e}")
             return []
 
     def _parse_lite_results(self, html_doc: str, limit: int) -> List[SearchResult]:

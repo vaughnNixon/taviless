@@ -23,3 +23,4 @@ class SearchResponse(TypedDict, total=False):
     response_time: float
     answer: Optional[str]
     images: List[Dict[str, Any]]
+    warnings: List[str]  # extra: engine/crawl problems, present only when something went wrong

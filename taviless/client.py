@@ -8,8 +8,10 @@ import re
 import time
 from typing import Any, Dict, List, Optional
 
+from taviless import diagnostics
 from taviless.engines import MultiEngineGateway
 from taviless.extractor import fetch_and_extract
+from taviless.scoring import extractive_answer, score_results
 from taviless.types import SearchDepth, SearchResponse, SearchResult
 
 logger = logging.getLogger(__name__)
@@ -128,6 +130,8 @@ class TavilyClient:
                 "images": [],
             }
 
+        diagnostics.begin()
+
         if kwargs:
             logger.debug("Ignoring unsupported Tavily parameters: %s", sorted(kwargs))
 
@@ -167,6 +171,9 @@ class TavilyClient:
                 )
             )
 
+        # Heuristic relevance score (rank prior + query-term overlap); sorts results
+        results = score_results(query, results)
+
         # Step 2: If advanced search depth is requested, crawl top pages in parallel
         if search_depth == "advanced" and results:
             results = self._crawl_and_extract_parallel(
@@ -180,7 +187,7 @@ class TavilyClient:
         # Step 3: Formulate answer if requested
         answer: Optional[str] = None
         if include_answer and results:
-            answer = self._synthesize_quick_answer(query, results)
+            answer = extractive_answer(query, results)
 
         response: SearchResponse = {
             "query": query,
@@ -189,6 +196,11 @@ class TavilyClient:
             "answer": answer,
             "images": [],
         }
+        warnings = diagnostics.collect()
+        if warnings:
+            response["warnings"] = warnings
+            if not results:
+                logger.warning("Search returned no results for %r: %s", query, "; ".join(warnings))
         return response
 
     def _crawl_and_extract_parallel(
@@ -198,6 +210,8 @@ class TavilyClient:
         reverse_chronological: bool = False,
     ) -> List[SearchResult]:
         """Crawl the top links concurrently and extract clean, token-dense markdown content."""
+
+        failed: List[str] = []
 
         def _fetch_one(item: SearchResult) -> SearchResult:
             url = item.get("url", "")
@@ -211,6 +225,8 @@ class TavilyClient:
                 use_trafilatura=self.use_trafilatura,
                 reverse_chronological=reverse_chronological,
             )
+            if raw_html is None:
+                failed.append(url)
 
             # If full page content was successfully extracted, replace snippet
             updated = dict(item)
@@ -224,28 +240,14 @@ class TavilyClient:
 
         workers = min(len(results), self.max_workers)
         if workers <= 1:
-            return [_fetch_one(r) for r in results]
+            crawled = [_fetch_one(r) for r in results]
+        else:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+                crawled = list(executor.map(_fetch_one, results))
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
-            crawled = list(executor.map(_fetch_one, results))
-
+        if failed:
+            diagnostics.note(f"crawl: could not fetch {len(failed)} of {len(results)} pages (kept search snippets)")
         return crawled
-
-    def _synthesize_quick_answer(self, query: str, results: List[SearchResult]) -> str:
-        """Generate a concise extracted summary answer from top result content."""
-        snippets: List[str] = []
-        for r in results[:3]:
-            content = r.get("content", "").strip()
-            if content:
-                # Take the first 1-2 sentences
-                first_part = content.split("\n")[0]
-                if len(first_part) > 200:
-                    first_part = first_part[:200].rstrip() + "..."
-                snippets.append(first_part)
-
-        if snippets:
-            return " | ".join(snippets)
-        return "No direct answer found in extracted snippets."
 
     def get_search_context(
         self,
