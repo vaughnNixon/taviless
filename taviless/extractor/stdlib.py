@@ -169,7 +169,7 @@ MONTHS = {
 MONTH_REGEX = r'(?:' + '|'.join(sorted(MONTHS.keys(), key=len, reverse=True)) + r')'
 
 
-def extract_dates_from_text(text: str) -> List[Any]:
+def extract_dates_from_text(text: str) -> List["datetime.date"]:
     """Find calendar dates in text string."""
     import datetime
     found: List[datetime.date] = []
@@ -214,7 +214,17 @@ def reorder_reverse_chronological(text: str, reference_date: Any = None) -> str:
         return text
 
     today = reference_date or datetime.date.today()
-    sections = [s.strip() for s in text.split("\n\n") if s.strip()]
+    raw = [s.strip() for s in text.split("\n\n") if s.strip()]
+    # Keep each heading attached to the paragraph that follows it
+    sections: List[str] = []
+    i = 0
+    while i < len(raw):
+        if raw[i].startswith("#") and i + 1 < len(raw):
+            sections.append(raw[i] + "\n\n" + raw[i + 1])
+            i += 2
+        else:
+            sections.append(raw[i])
+            i += 1
     if len(sections) <= 1:
         return text
 
@@ -229,7 +239,9 @@ def reorder_reverse_chronological(text: str, reference_date: Any = None) -> str:
         else:
             undated_sections.append(s)
 
-    if not dated_sections:
+    # Only reorder content that is mostly dated entries (changelogs, news feeds);
+    # reordering ordinary prose destroys its structure.
+    if len(dated_sections) < 3 or len(dated_sections) * 2 < len(sections):
         return text
 
     # Sort dated sections with newest date first (descending)

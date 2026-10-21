@@ -6,7 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: 3.9+](https://img.shields.io/badge/Python-3.9%2B-brightgreen.svg)]()
-[![Tests](https://img.shields.io/badge/Tests-Passing%20(14%2F14)-success)]()
+[![Tests](https://img.shields.io/badge/Tests-Passing%20(20%2F20)-success)]()
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero%20(Pure%20Stdlib)-blueviolet)]()
 
 Taviless gives your AI agents, LangChain workflows, CrewAI teams, and local LLMs real-time web search with clean, token-dense markdown content extraction—**without API keys, subscriptions, credit cards, or Docker containers required**.
@@ -258,7 +258,7 @@ While Taviless provides a robust multi-engine gateway out of the box, keep the f
 ## 🧪 Testing
 
 ```bash
-# Run unit test suite (14 passing tests)
+# Run unit test suite (20 passing tests)
 python -m unittest discover tests
 
 # Run live verification

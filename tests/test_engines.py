@@ -49,7 +49,11 @@ class TestEngines(unittest.TestCase):
 
         # Deduplication check
         self.assertEqual(len(filtered), 2)
-        self.assertEqual(filtered[0]["url"], "https://docs.python.org/3/library/asyncio.html")
+        # Original URL is preserved (normalization is only used as the dedup key)
+        self.assertEqual(
+            filtered[0]["url"],
+            "https://docs.python.org/3/library/asyncio.html?utm_source=test&ref=123",
+        )
         self.assertEqual(filtered[1]["url"], "https://blog.python.org/news")
 
     def test_duckduckgo_html_parser(self) -> None:

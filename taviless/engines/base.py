@@ -41,7 +41,7 @@ class BaseSearchEngine(ABC):
         try:
             parsed = urllib.parse.urlparse(url)
             # Remove common tracking query params
-            query_pairs = urllib.parse.parse_qsl(parsed.query)
+            query_pairs = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
             clean_pairs = [
                 (k, v)
                 for k, v in query_pairs
@@ -49,7 +49,8 @@ class BaseSearchEngine(ABC):
             ]
             clean_query = urllib.parse.urlencode(clean_pairs)
             return urllib.parse.urlunparse(
-                (parsed.scheme, parsed.netloc, parsed.path, parsed.params, clean_query, "")
+                (parsed.scheme.lower(), parsed.netloc.lower(), parsed.path.rstrip("/") or "/",
+                 parsed.params, clean_query, "")
             )
         except Exception:
             return url
@@ -74,7 +75,7 @@ class BaseSearchEngine(ABC):
             if not raw_url or not raw_url.startswith("http"):
                 continue
 
-            clean_url = cls._normalize_url(raw_url)
+            clean_url = cls._normalize_url(raw_url)  # dedup key only; item["url"] is left untouched
             if clean_url in seen_urls:
                 continue
 
@@ -94,7 +95,6 @@ class BaseSearchEngine(ABC):
                     continue
 
             seen_urls.add(clean_url)
-            item["url"] = clean_url
             filtered.append(item)
 
             if len(filtered) >= max_results:

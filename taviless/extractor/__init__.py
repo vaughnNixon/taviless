@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import gzip
+import ipaddress
 import logging
+import socket
 from typing import Optional, Tuple
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -21,8 +24,36 @@ DEFAULT_HEADERS = {
     ),
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate",
+    "Accept-Encoding": "gzip",
 }
+
+MAX_RESPONSE_BYTES = 2_000_000
+
+
+def _is_public_url(url: str) -> bool:
+    """True only for http(s) URLs whose host resolves exclusively to public IPs (SSRF guard)."""
+    try:
+        parsed = urllib.parse.urlparse(url)
+        if parsed.scheme not in ("http", "https") or not parsed.hostname:
+            return False
+        port = parsed.port or (443 if parsed.scheme == "https" else 80)
+        for info in socket.getaddrinfo(parsed.hostname, port, proto=socket.IPPROTO_TCP):
+            ip = ipaddress.ip_address(info[4][0])
+            if not ip.is_global:
+                return False
+        return True
+    except Exception:
+        return False
+
+
+class _SafeRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not _is_public_url(newurl):
+            raise urllib.error.URLError(f"blocked redirect to non-public URL: {newurl}")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+_OPENER = urllib.request.build_opener(_SafeRedirectHandler)
 
 
 def fetch_url(url: str, timeout: float = 4.0) -> Tuple[str, str]:
@@ -35,9 +66,11 @@ def fetch_url(url: str, timeout: float = 4.0) -> Tuple[str, str]:
     Returns:
         A tuple of (decoded_html_string, final_resolved_url).
     """
+    if not _is_public_url(url):
+        raise ValueError(f"refusing to fetch non-public URL: {url}")
     req = urllib.request.Request(url, headers=DEFAULT_HEADERS)
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        raw_bytes = response.read()
+    with _OPENER.open(req, timeout=timeout) as response:
+        raw_bytes = response.read(MAX_RESPONSE_BYTES)
         final_url = response.geturl()
 
         # Handle gzip compression if present

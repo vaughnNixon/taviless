@@ -15,7 +15,7 @@ from taviless.types import SearchDepth, SearchResponse, SearchResult
 logger = logging.getLogger(__name__)
 
 TEMPORAL_KEYWORDS = re.compile(
-    r"\b(latest|recent|newest|current|today|breaking|upcoming|this month|this week|new)\b",
+    r"\b(latest|recent|newest|today|breaking|upcoming|this month|this week)\b",
     re.IGNORECASE,
 )
 
@@ -106,6 +106,18 @@ class TavilyClient:
 
         results: List[SearchResult] = list(raw_results)
 
+        # Auto-inferred time filter returned nothing: retry unfiltered
+        if not results and effective_time_range and not time_range:
+            results = list(
+                self.gateway.search(
+                    query=query.strip(),
+                    max_results=max_results,
+                    include_domains=include_domains,
+                    exclude_domains=exclude_domains,
+                    time_range=None,
+                )
+            )
+
         # Step 2: If advanced search depth is requested, crawl top pages in parallel
         if search_depth == "advanced" and results:
             results = self._crawl_and_extract_parallel(
@@ -126,7 +138,7 @@ class TavilyClient:
             "results": results,
             "response_time": elapsed,
             "answer": answer,
-            "images": [] if include_images else [],
+            "images": [],
         }
         return response
 

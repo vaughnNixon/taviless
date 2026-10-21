@@ -58,20 +58,7 @@ class MultiEngineGateway(BaseSearchEngine):
                 return results
             logger.warning("SearXNG returned no results, falling back to DuckDuckGo.")
 
-        # Default "auto" mode:
-        # If a custom SearXNG instance is specified, try it first
-        if self.searxng.custom_url:
-            results = self.searxng.search(
-                query,
-                max_results=max_results,
-                include_domains=include_domains,
-                exclude_domains=exclude_domains,
-                time_range=time_range,
-            )
-            if results:
-                return results
-
-        # Try SearXNG public gateways
+        # Default "auto" mode: SearXNG (custom instance if set, else public gateways)
         results = self.searxng.search(
             query,
             max_results=max_results,

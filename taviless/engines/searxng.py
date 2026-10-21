@@ -75,6 +75,10 @@ class SearXNGEngine(BaseSearchEngine):
                     exclude_domains=exclude_domains,
                 )
 
+            # Private instance configured: never fall back to public gateways
+            # (would leak queries the user meant to keep private).
+            return []
+
         # 2. Iterate through candidate public gateways
         now = time.time()
         for gateway in list(self.gateways):
