@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import concurrent.futures
 import json
 import logging
 import os
+import threading
 import time
 from typing import Dict, List, Optional
 import urllib.parse
@@ -49,6 +51,7 @@ class SearXNGEngine(BaseSearchEngine):
         self.cooldown = circuit_cooldown_seconds
         # gateway -> last_failure_timestamp
         self._circuit_breakers: Dict[str, float] = {}
+        self._lock = threading.Lock()
 
     def search(
         self,
@@ -79,36 +82,57 @@ class SearXNGEngine(BaseSearchEngine):
             # (would leak queries the user meant to keep private).
             return []
 
-        # 2. Iterate through candidate public gateways
+        # 2. Race all public gateways that aren't on cooldown; first non-empty wins.
+        #    Worst case is ~one timeout instead of one timeout per gateway.
         now = time.time()
-        for gateway in list(self.gateways):
-            last_failed = self._circuit_breakers.get(gateway, 0.0)
-            if now - last_failed < self.cooldown:
-                # Gateway is currently on cooldown
-                continue
+        with self._lock:
+            candidates = [
+                g for g in self.gateways
+                if now - self._circuit_breakers.get(g, 0.0) >= self.cooldown
+            ]
+        if not candidates:
+            return []
 
-            results = self._query_instance(
-                gateway,
-                query,
-                max_results * 2,
-                time_range=time_range,
-            )
-            if results:
-                # Promote working gateway to the front of candidate list
-                if gateway in self.gateways:
-                    self.gateways.remove(gateway)
-                    self.gateways.insert(0, gateway)
-                return self.filter_and_rank(
-                    results,
-                    max_results=max_results,
-                    include_domains=include_domains,
-                    exclude_domains=exclude_domains,
-                )
-            else:
-                # Mark failed in circuit breaker
-                self._circuit_breakers[gateway] = now
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=len(candidates))
+        futures = {
+            executor.submit(
+                self._query_instance, g, query, max_results * 2, time_range=time_range
+            ): g
+            for g in candidates
+        }
+        winner: Optional[str] = None
+        results: List[SearchResult] = []
+        try:
+            for fut in concurrent.futures.as_completed(futures):
+                gateway = futures[fut]
+                try:
+                    res = fut.result()
+                except Exception:  # _query_instance already swallows; be defensive
+                    res = []
+                if res:
+                    winner, results = gateway, res
+                    break
+                # Finished empty/failed before any winner: put it on cooldown
+                with self._lock:
+                    self._circuit_breakers[gateway] = time.time()
+        finally:
+            # Don't block on slower gateways; they finish on their own within `timeout`
+            executor.shutdown(wait=False, cancel_futures=True)
 
-        return []
+        if not winner:
+            return []
+
+        # Promote working gateway to the front of the candidate list
+        with self._lock:
+            if winner in self.gateways:
+                self.gateways.remove(winner)
+                self.gateways.insert(0, winner)
+        return self.filter_and_rank(
+            results,
+            max_results=max_results,
+            include_domains=include_domains,
+            exclude_domains=exclude_domains,
+        )
 
     def _query_instance(
         self,

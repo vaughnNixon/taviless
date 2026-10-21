@@ -257,11 +257,16 @@ While Taviless provides a robust multi-engine gateway out of the box, keep the f
 
 1. **Upstream Interface Changes:** Public search engines (DuckDuckGo, SearXNG public instances) do not provide SLA-backed APIs; their HTML markup, headers, and anti-bot challenges can change periodically. Taviless employs a multi-tiered fallback (SearXNG JSON $\rightarrow$ DuckDuckGo POST $\rightarrow$ DuckDuckGo GET $\rightarrow$ DuckDuckGo Lite HTML table) to maintain resilience.
 2. **Rate Limiting & Throttling:** If you run heavy parallel agent swarms sending dozens of queries per second, public gateways will temporarily throttle or rate-limit automated IP requests.
-3. **Optional Private SearXNG Node:** For high-volume production deployments with zero throttling, you can point Taviless to your own private SearXNG Docker container in 1 line:
+3. **Private SearXNG Node (recommended for production):** SearXNG is Taviless's primary engine. A private instance gives you multi-engine aggregation, no shared rate limits, and keeps your queries private:
    ```bash
    docker run -d -p 8080:8080 -e "SEARXNG_BASE_URL=http://localhost:8080/" searxng/searxng
    export TAVILESS_SEARXNG_URL="http://localhost:8080"
    ```
+   > SearXNG ships with JSON output disabled. Add `json` to `search.formats` in its `settings.yml` (`formats: [html, json]`) or Taviless will get `403`s.
+
+   When a private URL is set, Taviless **never** falls back to public SearXNG gateways (your queries stay on your node); in `auto` mode it can still fall back to DuckDuckGo.
+
+   **Public gateways (best-effort):** with no private URL, Taviless races a built-in list of public SearXNG instances in parallel and uses the first that answers. Many public instances disable JSON output or rate-limit bots, and your queries go to third-party servers, so don't send anything sensitive through them.
    Or pass it in code: `TavilyClient(searxng_url="http://localhost:8080")`.
 
 ---
@@ -269,7 +274,7 @@ While Taviless provides a robust multi-engine gateway out of the box, keep the f
 ## 🧪 Testing
 
 ```bash
-# Run unit test suite (28 passing tests)
+# Run unit test suite (31 passing tests)
 python -m unittest discover tests
 
 # Run live verification
