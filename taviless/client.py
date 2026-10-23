@@ -186,12 +186,14 @@ class TavilyClient:
         elif include_answer and results:
             # When an answer is requested in basic depth, peek at the top 2 results concurrently
             # with clean content so the extractive answer has grounded facts instead of truncated snippets.
+            # Uses a tighter timeout (2.0s) so lagging third-party blogs don't delay the search response.
             peek_n = min(2, len(results))
             top_peek = self._crawl_and_extract_parallel(
                 results[:peek_n],
                 include_raw_content=False,
                 reverse_chronological=False,
                 max_chars=max_crawl or 10000,
+                timeout=min(2.0, self.crawl_timeout),
             )
             results = top_peek + results[peek_n:]
 
@@ -222,10 +224,12 @@ class TavilyClient:
         include_raw_content: bool = False,
         reverse_chronological: bool = False,
         max_chars: int = 20000,
+        timeout: Optional[float] = None,
     ) -> List[SearchResult]:
         """Crawl the top links concurrently and extract clean, token-dense markdown content."""
 
         failed: List[str] = []
+        fetch_timeout = timeout if timeout is not None else self.crawl_timeout
 
         def _fetch_one(item: SearchResult) -> SearchResult:
             url = item.get("url", "")
@@ -234,7 +238,7 @@ class TavilyClient:
 
             clean_text, raw_html = fetch_and_extract(
                 url=url,
-                timeout=self.crawl_timeout,
+                timeout=fetch_timeout,
                 max_chars=max_chars,
                 use_trafilatura=self.use_trafilatura,
                 reverse_chronological=reverse_chronological,

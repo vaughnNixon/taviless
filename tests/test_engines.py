@@ -8,6 +8,7 @@ from unittest.mock import MagicMock, patch
 from taviless.engines.base import BaseSearchEngine
 from taviless.engines.duckduckgo import DuckDuckGoEngine
 from taviless.engines.searxng import SearXNGEngine
+from taviless.engines import MultiEngineGateway
 from taviless.types import SearchResult
 
 
@@ -95,6 +96,42 @@ class TestEngines(unittest.TestCase):
         # Score should be normalized between 0.4 and 1.0
         self.assertLessEqual(parsed[0]["score"], 1.0)
         self.assertGreaterEqual(parsed[0]["score"], 0.4)
+
+    def test_multi_engine_gateway_speculative_race(self) -> None:
+        gateway = MultiEngineGateway()
+        res_ddg: list[SearchResult] = [
+            {"title": "DDG 1", "url": "https://example.com/shared", "content": "from ddg", "score": 0.9},
+            {"title": "DDG 2", "url": "https://example.com/ddg-only", "content": "only ddg", "score": 0.8},
+        ]
+        res_searx: list[SearchResult] = [
+            {"title": "SearX 1", "url": "https://example.com/shared", "content": "from searx", "score": 0.95},
+            {"title": "SearX 2", "url": "https://example.com/searx-only", "content": "only searx", "score": 0.85},
+        ]
+
+        with patch.object(gateway.duckduckgo, "search", return_value=res_ddg), \
+             patch.object(gateway.searxng, "search", return_value=res_searx):
+            results = gateway.search("test query", max_results=5)
+
+            # Should merge both and deduplicate /shared
+            urls = [r["url"] for r in results]
+            self.assertEqual(len(results), 3)
+            self.assertIn("https://example.com/shared", urls)
+            self.assertIn("https://example.com/ddg-only", urls)
+            self.assertIn("https://example.com/searx-only", urls)
+
+    def test_multi_engine_gateway_one_engine_fails(self) -> None:
+        gateway = MultiEngineGateway()
+        res_ddg: list[SearchResult] = [
+            {"title": "DDG Res", "url": "https://example.com/ddg", "content": "from ddg", "score": 0.9},
+        ]
+
+        # SearXNG throws an exception or returns empty, DDG succeeds
+        with patch.object(gateway.duckduckgo, "search", return_value=res_ddg), \
+             patch.object(gateway.searxng, "search", side_effect=RuntimeError("SearXNG down")):
+            results = gateway.search("test query", max_results=5)
+
+            self.assertEqual(len(results), 1)
+            self.assertEqual(results[0]["url"], "https://example.com/ddg")
 
 
 if __name__ == "__main__":
