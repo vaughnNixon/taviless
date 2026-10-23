@@ -24,8 +24,9 @@ Most search APIs for AI agents (like Tavily) charge monthly subscriptions, gate 
 Furthermore, many proprietary search engines bias heavily toward commercial SEO pages or hallucinate when asked for long-tail historical records. Taviless was built to provide:
 1. **Absolute Freedom:** Pure Python standard library (`urllib.request`, `concurrent.futures`, `html.parser`). `pip install taviless` and you're immediately running.
 2. **Search API Compatibility:** Compatible with Tavily's search response schema so existing agent pipelines can switch with a single-line import change.
-3. **Deep Archival Retrieval:** Grounded evidence from primary sources (including Internet Archive scans and academic repositories) where standard LLMs hallucinate.
-4. **Reverse-Chronological Temporal Grounding:** Prevents agents from falling into the "Static Homepage Trap" on fast-moving tech queries.
+3. **Speculative Multi-Engine Racing (v0.1.1):** Queries DuckDuckGo and SearXNG simultaneously with a 250ms fast cutoff, giving you sub-1.5s search speeds and multi-engine deduplicated results.
+4. **Deep Archival Retrieval:** Grounded evidence from primary sources (including Internet Archive scans and academic repositories) where standard LLMs hallucinate.
+5. **Reverse-Chronological Temporal Grounding:** Prevents agents from falling into the "Static Homepage Trap" on fast-moving tech queries.
 
 ---
 
