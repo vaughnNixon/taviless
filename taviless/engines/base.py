@@ -48,8 +48,11 @@ class BaseSearchEngine(ABC):
                 if not k.startswith("utm_") and k not in {"fbclid", "gclid", "ref"}
             ]
             clean_query = urllib.parse.urlencode(clean_pairs)
+            netloc = parsed.netloc.lower()
+            if netloc.startswith("www."):
+                netloc = netloc[4:]
             return urllib.parse.urlunparse(
-                (parsed.scheme.lower(), parsed.netloc.lower(), parsed.path.rstrip("/") or "/",
+                (parsed.scheme.lower(), netloc, parsed.path.rstrip("/") or "/",
                  parsed.params, clean_query, "")
             )
         except Exception:

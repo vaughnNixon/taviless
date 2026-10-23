@@ -28,6 +28,12 @@ class TestEngines(unittest.TestCase):
                 "score": 0.8,
             },
             {
+                "title": "WWW Duplicate URL",
+                "url": "https://www.docs.python.org/3/library/asyncio.html",
+                "content": "WWW Duplicate",
+                "score": 0.75,
+            },
+            {
                 "title": "Bad Domain",
                 "url": "https://spam.com/article",
                 "content": "Spam",
